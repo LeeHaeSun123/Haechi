@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/window_sub2.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h2>아이디와 암호 확인</h2>
+<script>  
+   var r = window.opener.document.getElementById('result');
+   var frm = window.opener.document.frm;
+   var id = frm.id.value;
+   var pw = Number(frm.pw.value);
+   var id_list = ['가','나','다','라','마'];
+   var pw_list = ['10','20','30','40','50'];
+   var str ='';
+
+   for(var x in id_list){
+	   if(id_list[x]==id && pw_list[x]==pw){
+		   str = '환영합니다';
+		   break;
+	   }
+	   else{
+		   str = '아이디와 암호를 확인하여 주세요';
+	   }
+   }
+
+   r.innerHTML = str;
+</script>
+</div>
+</body>
+</html>

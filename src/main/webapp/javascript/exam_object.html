@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/exam_object.html</title>
+</head>
+<body>
+<div id='javascript'>
+<form name='frm'>
+<label>제품명</label>
+<input type='text' value='사과' name='pname'>
+<br/>
+<label>수량</label>
+<input type='text' value='10' name='ea'>
+<br/>
+<label>단가</label>
+<input type='text' value='500' name='price'>
+<hr/>
+<input type='button' value='저장' id='save_btn' name='save_btn'>
+<input type='button' value='출력' id='print_btn' name='print_btn'>
+</form>
+<div id='result'></div>
+<script>
+    var frm = document.frm;
+    var products = [];
+	var str ='';
+	
+	function Products(pname, ea, price){
+		this.pname = pname;
+		this.ea = ea;
+		this.price = price;
+	}
+	var save_btn = document.getElementById('save_btn');
+	frm.save_btn.onclick = function(){
+		var pname = frm.pname.value;
+		var ea = frm.ea.value;
+		var price = frm.price.value;
+	
+	    var p = new Products(pname, ea, price);
+	    products.push(p);
+	}
+	var print_btn = document.getElementById('print_btn');
+	frm.print_btn.onclick = function(){
+	    var r = document.getElementById('result');
+		var str = '<h2>매출 현황<h2>'
+		         +"<div class='title'>"
+		         +"<span class='pname'>제품명</span>" 
+		         +"<span class='ea'>수량</span>"
+		         +"<span class='price'>단가</span>"
+		         +"</div>"
+		         
+	for(x of products){
+		str += "<div class='item'>"
+		    + "<span class='pname'>" + x.pname + "</span>"
+		    + "<span class='ea'>"    + x.ea    + "</span>"
+		    + "<span class='price'>" + x.price + "</span>" 
+		    + "</div>"
+	}
+	    r.innerHTML = str;
+	}
+	    
+
+
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/exam_object1.html</title>
+<style>
+   
+   #javascript{
+      width:600px;
+      margin:30px auto;
+      border:5px solid #888;
+      border-radius:10px;
+      position: relative;
+      min-height:400px; /*data가 없어도 기본 높이가 400px*/
+      
+   }
+   #javascript *{ /*javascript의 모든 요소*/
+      box-sizing: border-box; /*padding에 의해 변경되는 것을 막는다 절대넓이는 늘어나지 않고 padding값만 들어난다*/
+   }
+   #javascript h1{
+      text-align: center;
+   }
+   #javascript form{
+      margin:10px 30px; /*상하 margin:10px, 좌우 margin:30px*/
+   }
+   #javascript form label{
+      line-height: 1.5em; /*사이 간격이 1.5배(em) -> 제품명, 수량, 단가*/
+      display: inline-block;
+      width:60px;
+   }
+   
+   #javascript .btnZone{
+      margin:20px 60px; /*상하 margin:20px, 좌우 margin:60px*/
+   }
+   
+   #javascript #result{ /*보여질 창 영역*/
+      background-color:#333; /*바탕색 : 검은색*/
+      color:#fff; /*글자색 : 흰색*/
+      min-height:300px; /*최소 높이 : 300px-450px*/
+      max-height:450px;
+      overflow:auto; /*길이가 최대로 넘어가면 스크롤바*/
+      margin:10px 5px 40px 5px; /*margin값 상:10px 우:5px 하:40px 좌:5px (시계방향)*/
+      padding:10px; 
+      
+   }
+   
+   #javascript #info{ /*'작업을 시작하세요.' 영역*/
+      position: absolute; /*부모태그(#javascript) position : relative*/
+      background-color:#aaa;
+      bottom:0px; /*항상 바닥에 표시된다*/
+      width: 100%;
+      padding:4px;
+      height:36px;
+      line-height: 36px;
+      text-align: center; /*'작업을 시작하세요.'는 중앙에 위치*/
+   }
+   #javascript span{ display: inline-block;} /*제품명, 수량, 단가*/
+   #javascript .pn{width:220px}
+   #javascript .ea{width:120px;text-align: right}
+   #javascript .pr{width:210px;text-align:right;}
+   
+   
+</style>
+</head>
+<body>
+<div id='javascript'>
+   <h1>Object 생성 미션</h1>
+   <form name='frm'>
+      <label>제품명</label>
+      <input type='text' name='pName' value='고성능 노트북' />
+      <br/>
+      <label>수량</label>
+      <input type='text' name='ea' value='1234' />
+      <br/>
+      <label>단가</label>
+      <input type='text' name='price' value='1500' />
+      <br/>
+      <div class='btnZone'>
+         <input type='button' value='SAVE' name='btnSave'/>
+         <input type='button' value='PRINT' name='btnPrint'/>
+      </div>
+   </form>
+   <div id='result'></div>
+   <div id='info'>작업을 시작하세요.</div>
+</div>
+
+<script>
+   var result = document.getElementById('result');
+   var info = document.getElementById('info');
+   var frm = document.frm;
+   var products = []; //products 배열 생성
+   function Product(name, ea, price){ //class선언
+      this.name = name; //멤버변수(=attribute, field) = 인자값
+      this.ea = ea; 
+      this.price = price; 
+   }
+   
+   //sample
+   products.push(new Product('새 냉장고', 1000,4000));
+   products.push(new Product('거의 새 냉장고', 500,3456));
+   products.push(new Product('중고 세탁기', 1200,2000));
+   products.push(new Product('거의 중고 냉장고', 900,100010));
+   products.push(new Product('헌 운동화', 100,9000));
+   products.push(new Product('거의 새 마우스', 1000,904000));
+  
+   
+   
+   frm.btnSave.onclick = function(){
+      var n = frm.pName.value;
+      var e = Number(frm.ea.value);
+      var p = Number(frm.price.value);
+      
+      var obj = new Product(n, e, p);
+      products.push(obj);
+      info.innerHTML = '자료가 저장되었습니다.';
+      
+      setTimeout(function(){ //setTimeout(function,1/1000초)
+         info.innerHTML = '작업을 시작하세요'; //시간이 지나면 '작업을 시작하세요'라고 바뀐다
+      }, 1500); //1500/1000초 = 1.5초 후
+      
+   }
+   frm.btnPrint.onclick = function(){
+
+      products.sort(asc) // 제품명 순으로 오름차 정렬
+      
+      var str = products.length + ' 건<hr/>';
+      str += "<span class='pn'>제품명</span>";
+      str += "<span class='ea'>수량</span>";
+      str += "<span class='pr'>단가</span>";
+      str += '<hr/>'
+      for(x of products){
+         str += "<span class='pn'>" + x.name + "</span>";
+         str += "<span class='ea'>" + x.ea.toLocaleString('kr') + "</span>";
+         str += "<span class='pr'>" + x.price.toLocaleString('kr') + "</span>";
+         str += '<br/>'
+      } 
+      result.innerHTML = str;
+      info.innerHTML = '자료가 모두 출력되었습니다.';
+      
+      setTimeout(function(){
+         info.innerHTML = '작업을 시작하세요';
+      }, 1500);
+      
+   }
+   function asc(x,y){
+      if( x.name > y.name) return 1;
+      else return -1;
+   }
+
+</script>
+</body>
+</html>

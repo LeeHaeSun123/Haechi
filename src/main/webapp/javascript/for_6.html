@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/for_6.html</title>
+
+<style>
+.even, .odd{
+   display:inline-block;
+   width:200px;
+}
+.even{
+   color : #00f;
+}
+.odd{
+   color : #f00;
+}
+</style>
+
+</head>
+<body>
+<div id='javascript'>
+   <h1>구구단2</h1>
+  <fieldset>
+     <ul>
+        <li>사용자로 하여금 두 수 x,y를 입력받아 x~y까지의 구구단을 출력</li>
+        <li>단, x>y인 경우도 항상 작은단에서 큰단으로 출력</li>
+        <li>각 단수는 굵은 글자로 표시</li>
+        <li>홀수단과 짝수단의 글자색을 다르게-option</li>
+     </ul>
+  </fieldset>
+  
+  <form name='frm'>
+      <label>두 수</label>
+      <input type='text' name='x' value='2' size='4'/>~
+      <input type='text' name='y' value='9' size='4'/>
+      <input type='button' value='RUN' name='btn'/>
+  </form>
+  
+  <div id='result'></div>
+  
+  <script>
+  var frm = document.frm;
+  var r = document.getElementById('result');
+  var str='';
+
+  
+  frm.btn.onclick = function(){
+	  
+	  var x = Number(frm.x.value);
+	  var y = Number(frm.y.value);
+	  var start;
+	  var end;
+	  
+	  //x>y인 경우 처리
+	     if(x>y){
+	    	 start = y;
+	    	 end = x;    	 
+	     }
+	     else{
+	    	 start = x;
+	    	 end = y;
+	     }
+	     
+	  for(var i=start; i<=end; i++){
+		  
+         // 지금 출력하는 단수가 홀수단인가 짝수단인가에 따라 폰트색 변경
+         if(i%2==0){
+        	 str += '<div class="even">';
+         }
+         else{
+        	 str += '<div class="odd">';
+         }
+         str += '<h2>' + i + '단' + '</h2>'; //단수를 굵게 처리
+         
+	     for(var j=1; j<=9; j++){
+		    str += + i +'*'+ j + '=' + (j*i) + '<br/>';		    
+	 }    
+		    str += '</div>';
+		    
+		    r.innerHTML = str;
+	}
+  }
+
+  
+  </script>
+  </div>
+</body>
+</html>

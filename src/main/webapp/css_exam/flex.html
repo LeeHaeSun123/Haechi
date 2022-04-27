@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/flex</title>
+<style>
+.container>div, .container2>div, .container3>div, .container4>div, .container5>div, .container6>div, .container7>div{
+   border:3px solid #66f;
+   padding:15px;   
+}
+.container{
+   display:flex;
+   /*row, column, row-reverse, column-reverse*/
+   flex-direction: row;
+   /*nowrap, wrap, wrap-reverse*/
+   flex-wrap:wrap;
+}
+
+.container2{
+   display:flex;
+   /*flex-start / flex-end / center / space-between / space-around / space-evenly */
+   justify-content:space-evenly;
+}
+
+.container3{
+   border:3px solid #00f;
+   height:200px;
+   display:flex;
+   /*flex-start / flex-end / center / stretch */
+   align-items:flex-start;
+}
+
+.container4>div{
+   width:150px;
+   
+}
+
+.container4{
+   display:flex;
+   flex-wrap:wrap;
+   height:300px;
+   border:3px solid #77f;
+   
+   /*flex-start / flex-end / center / space-between / space-around / space-evenly */
+   align-content:center;
+}
+
+.container5{
+   display:flex;
+   border:3px solid #f77;
+   flex-direction:row;
+}
+/*첫번째, 마지막 div에 flex의 기본 크기 지정*/
+.container5>div:first-child{
+   flex-basis:250px;
+}
+
+.container5>div:last-child{
+   flex-basis:250px;
+}
+
+/*flex-grow : flex-basis로 지정하지 않은 item들의 넓이 설정 방법*/
+.container6{
+   display:flex;
+   flex-wrap:wrap;
+}
+
+.container6>div:first-child,
+.container6>dic:nth-child(3){
+   flex-basis:300px;
+}
+
+.container6>div:last-child{
+   flex-grow:1;
+}
+
+.container6>div:nth-child(2){
+   flex-grow:1;
+}
+
+.container7{
+   display:flex;
+   flex-direction:column;
+   flex-wrap:nowrap;
+}
+
+.container7>div:first-child{
+   flex-basis:300px;
+   flex-shrink:1;
+}
+
+.container7>div:nth-child(2){
+   flex-basis:300px;
+}
+
+.container7>div:last-child{
+   flex-basis:300px;
+   flex-shrink:0;
+}
+
+</style>
+
+</head>
+<body>
+<h2>direction / wrap</h2>
+<div class='container'>
+
+   <div>
+얼마나 꾸며 청춘의 얼마나 듣기만 이것이다. 없으면, 되는 그들에게 위하여서. 가치를 하여도 꽃 커다란 대한 인생에 바로 봄바람이다.
+   </div>
+   
+   <div>덮어 하나에 벌레는 멀리 가슴속에 이런 라이너 둘 까닭입니다. 
+   다하지 그러나 다 보고, 내일 봅니다. 너무나 부끄러운 밤을 나는 토끼, 멀듯이, 봄이 책상을 듯합니다.
+   </div>
+   
+   <div>우리 그들의 풀이 더운지라 얼음이 가치를 가장 봄바람이다. 
+   끝에 목숨이 풀이 희망의 쓸쓸한 사막이다.
+   </div>
+   
+   <div>가난한 나의 까닭이요, 봅니다.
+    별이 하나에 보고, 슬퍼하는 새겨지는 경, 있습니다.
+     나의 별 가을 옥 한 하나에 부끄러운 까닭입니다. 
+     나는 아직 당신은 오는 슬퍼하는 봅니다. 별 위에 위에도 못 까닭입니다.
+   </div>
+   
+   <div>천자만홍이 공자는 평화스러운 실로 봄날의 얼음 충분히 쓸쓸한 트고, 교향악이다. 
+   피어나는 동력은 무한한 품으며, 용감하고 트고, 스며들어 곳으로 쓸쓸하랴? 있으며, 역사를 때에, 얼마나 너의 속에 황금시대다.
+   </div>
+   
+   <div>천자만홍이 공자는 평화스러운 실로 봄날의 얼음 충분히 쓸쓸한 트고, 교향악이다
+   . 피어나는 동력은 무한한 품으며, 용감하고 트고, 스며들어 곳으로 쓸쓸하랴? 
+   있으며, 역사를 때에, 얼마나 너의 속에 황금시대다. 것은 없으면, 기관과 공자는 힘차게 것이 보이는 천자만홍이 철환하였는가?
+    투명하되 뜨거운지라, 이상의 곧 스며들어 그러므로 노래하며 그것을 끓는다. 
+  </div>
+</div>
+
+<h2>justify-content</h2>
+<div class='container2'>
+   <div>AAA</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+<h2>align-item</h2>
+<div class='container3'>
+   <div>A<br/>A<br/>A<br/>A</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+<h2>align-content</h2>
+<div class='container4'>
+   <div>A<br/>A<br/>A<br/>A</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+<h2>flex-basis</h2>
+<div class='container5'>
+   <div>A<br/>A<br/>A<br/>A</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+<h2>flex-row</h2>
+<div class='container6'>
+   <div>A<br/>A<br/>A<br/>A</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+<h2>flex-shrink</h2>
+<div class='container7'>
+   <div>A<br/>A<br/>A<br/>A</div>
+   <div>B</div>
+   <div>C</div>
+   <div>D</div>
+   <div>E</div>
+</div>
+
+</body>
+</html>

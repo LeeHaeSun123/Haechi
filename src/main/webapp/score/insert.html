@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>성적입력</title>
+</head>
+<body>
+<h2>성적입력</h2>
+<form name='frm_score' method='post' action=''>
+<label>성명</label>
+<input type='text' name='irumt' value='길동이'>
+       <br/>
+       
+<label>학과</label>
+       <select name='subject'>
+           <option value='프로그래밍'>프로그래밍</option>
+           <option value='디자인'>디자인</option>
+           <option value='설계'>설계</option>
+           <option value='건축'>건축</option>
+           <option value='항공'>항공</option>
+       </select>
+ <br/>
+<label>학과</label>
+<label><input type=radio name='subject' value='프로그래밍'>프로그래밍</label>
+<label><input type=radio name='subject' value='디자인'>디자인</label>
+<label><input type=radio name='subject' value='설계'>설계</label>
+<label><input type=radio name='subject' value='건축'>건축</label>
+<label><input type=radio name='subject' value='항공'>디자인</label>
+<br/>
+<label>성적</label>
+<input type='number' name='number' min='0' max='100'/>
+<br/>
+
+<label>학번</label>
+<input type='search' name='mid' value='a1234'/>
+<hr/>
+<input type='reset' value='초기화'/>
+<input type='submit' value='성적 저장'/>
+
+</form>
+
+</body>
+</html>

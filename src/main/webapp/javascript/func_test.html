@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_test.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>선언적 함수(함수식)</h1>
+   <script>
+   //hoisting 된다는 의미
+   // 선언적 함수는 가장 먼저 메모리에 올려진다.
+   A();
+   
+   function A(){
+	   console.log('A()......');
+   }
+   
+   A();
+   
+   //매개변수는 있고 리턴이 없는 경우
+   function B(kor, eng, mat){
+	   var sum = kor+eng+mat;
+	   console.log('sum' , sum);
+   }
+   B(); //sumNaN
+   B(10); //sumNaN
+   B(10,20); //sumNaN
+   B(10,20,30); //sum60
+   B(10,20,30,40); //sum60
+   
+   //매개변수는 없지만 리턴값이 있는 경우
+   function C(){
+	   var irum = 'hong gil dong';
+	   return irum;
+   }
+   var r = C();
+   console.log('return value', r);
+   
+   //매개변수와 리턴값이 모두 있는 경우
+   function D(kor, eng, mat){
+	   var sum = kor+eng+mat;
+	   return sum;
+   }
+   var s = D(10,20,30);
+   console.log('sum', s);
+   
+   //3개의 점수를 전달받아 합격여부를 반환하는 함수 E를 선언
+   //합격의 조건은 평균이 60이상인 경우
+   
+   function E(a,b,c){
+	   var x='합격';
+	   var avg=(a+b+c)/3;
+	   if(avg<60){
+		   x='불합격';
+	   }
+	   return x;
+   }
+   var r = E(90,60,70); //function E() 호출(call)
+   console.log('합격여부', r);
+   
+   r = E(10,20,30);
+   console.log('합격여부2', r);
+
+   </script>
+</div>
+</body>
+</html>

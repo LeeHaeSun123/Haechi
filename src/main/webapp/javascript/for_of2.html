@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/for_of2.html</title>
+<style>
+#result{
+   padding:10px;
+   border:1px;
+}
+</style>
+
+</head>
+<body>
+<div id='javascript'>
+   <h1>for of(2)</h1>
+   <fieldset>
+      <ul>
+         <li>for~of를 사용하여 아래의 문제를 해결하시오.</li>
+         <li>과정 코드가 체크박스로 나열되어 있다. 체크된 항목만을 결과창에
+         나열하시오</li>
+         <li>과정명 : html, css, javascript, mysql, java, jsp, spring</li>
+      </ul>
+   </fieldset>
+   <form name='frm'>
+      <label><input type='checkbox' name='program' value='html'>html</label>
+      <label><input type='checkbox' name='program' value='css'>css</label>
+      <label><input type='checkbox' name='program' value='javascript'>javascript</label>
+      <label><input type='checkbox' name='program' value='mysql'>mysql</label>
+      <label><input type='checkbox' name='program' value='java'>java</label>
+      <label><input type='checkbox' name='program' value='jsp'>jsp</label>
+      <label><input type='checkbox' name='program' value='spring'>spring</label>
+      <p/>
+      <input type='button' value='button' id='btn'/>
+   </form>
+   <div id='result'></div>
+   <script>
+      var frm = document.frm;
+      var r = document.getElementById('result');
+      frm.btn.onclick = function(){
+    	  for(x of frm.program){
+    		  if(x.checked){
+    	  r.innerHTML = '';
+    			  r.innerHTML += '<li>' + x.value + '</li>';
+    		  
+    		  }
+    	  }
+      }
+   </script>
+</div>
+</body>
+</html>

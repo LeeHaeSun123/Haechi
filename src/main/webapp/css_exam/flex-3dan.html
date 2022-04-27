@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/flex-3dan</title>
+<style>
+.main{
+   display:flex;
+   margin:1px;
+   flex-direction:row;
+}
+
+.header, .main>div, .footer{
+   border:2px solid #000;
+   padding:20px;
+   box-sizing:border-box;
+}
+
+.header, .footer{
+   display: flex;
+   flex-basis:auto;   
+}
+
+/*.a, .b, .c{
+   display:flex;
+   flex-direction:column;
+   margin:1px;
+}*/
+
+.main>div:first-child, .main>div:last-child{
+   flex-basis:250px;
+   margin:1px;
+   flex-shrink:0;
+}
+
+.main>div:nth-child(2){
+    flex-grow:1;
+    flex-basis:250px;
+    flex-shrink:0;
+}
+
+
+</style>
+</head>
+<body>
+<h2>flex-3dan</h2>
+<div class='header'>
+   <div>header</div>
+</div>
+
+<div class='main'>
+   <div class='a'>a</div>
+   <div class='b'>b</div>
+   <div class='c'>c</div>
+</div>
+
+<div class='footer'>
+footer
+</div>
+</body>
+</html>

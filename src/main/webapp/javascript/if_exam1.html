@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/if_exam1.html</title>
+<style>
+   #javascript form{
+      position:relative;
+   }
+   #javascript form label{
+      display:inline-block;
+      width:100px;
+      text-align:right;
+      margin-right:5px;
+   }
+   #javascript form #btn{
+      width:70px;
+      height:68px;
+      position:absolute;
+      top:1px;
+      margin-left:2px;
+   }
+</style>
+</head>
+<body>
+<div id='javascript'>
+<script>
+   var name = '핸드폰'; //상품명
+   var q = 10; //구매 수량
+   var n_price = 2100; //구매 단가
+   var total_price = (n_price)*q;
+   var pre = '';
+   
+   if(total_price >= 5000 && total_price < 10000){
+	   pre = '화장지';
+   }
+   else if(total_price >= 10000 && total_price < 20000){
+	   pre = '비행기';
+   }
+   else if(total_price >= 20000 && total_price < 30000){
+	   pre = '요트';
+   }
+   else if(total_price >= 30000){
+	   pre = '자전거';
+   }
+   else
+	   console.log('다음기회에..')
+	   
+	   console.log('상품명:' + name);
+       console.log('구매수량:' + q);
+       console.log('구매단가:' + n_price);
+       console.log('단가:' + total_price);
+       console.log('사은품:' + pre);
+</script>
+   <h1>if example</h1>
+   <fieldset>
+      <ol>
+         <li>
+            상품명, 구매수량, 상품의 단가가 임의의 변수에 저장되어 있을 때
+            금액(구매수량*상품의 단가)이 오천원(5000)이상, 만원(10000)이상, 이만원(20000)이상, 삼만원(30000)이상 일 때
+            각각 사은품을 화장지, 비행기, 요트, 자전거를 지급하도록 프로그램 하시오. 
+           
+         </li>         
+      </ol>
+   </fieldset>
+      <form name='frm' method='post'>
+      <label>상품명</label>
+         <input type='text' name='product'/>
+    
+      <br/>
+      <label>수량</label>
+         <input type='text' name='ea'/>
+      
+      <br/>
+      <label>단가</label>
+         <input type='text' name='price'/>
+      
+         <input type='button' value='계산' 
+                id='btn' name='btn'/>
+      <hr/>
+      
+      <label>금액</label>
+         <input type='text' name='amt'/>
+      
+      <br/>
+      <label>사은품</label>
+         <input type='text' name='gift'/>  
+   </form>
+   
+   <script>
+      var frm = document.frm;
+      //frm.product.value='컴퓨터';
+      
+      
+      frm.btn.onclick=function(){
+      var ea = Number(frm.ea.value);
+      var price = Number(frm.price.value);
+      var abc = ea*price;
+      var gift = '다음기회에...';
+      frm.amt.value=abc;
+      
+      /*조건을 비교하여 사은품을 frm.gift에 출력*/
+      if(abc>=30000)      gift = '자전거';
+      else if(abc>=20000) gift = '요트';
+      else if(abc>=10000) gift = '비행기';
+      else if(abc>5000)   gift = '화장지';
+      
+      frm.gift.value = gift;
+      /*console.log(gift);
+      console.log(ea);
+      console.log(price);*/  
+      }
+      
+     
+   </script>
+</div>
+</body>
+</html>

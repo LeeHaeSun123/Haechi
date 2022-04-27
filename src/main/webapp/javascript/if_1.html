@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/if_1.html</title>
+</head>
+<body>
+<div id='javscript'>
+   <h1>if</h1>
+   <script>
+      var a=10;
+      var b=50;
+      var c=0;
+      if(a<b)
+    	  console.log('참');
+      console.log('공통사항');
+      
+      /*만약 나이가 18세 이상이라면 '판매'를 출력하시오*/
+      var age=15;
+      if(age=>18){
+    	  console.log('판매');
+      }
+      /*키가 2m이상이거나(or) 몸무게가 150kg이라면 '탑승불가'*/
+      
+      var h = 180;
+      var w = 120;
+      if(h>=200 || w>=150){
+    	  console.log('탑승불가');
+      }
+      
+      /*임의의 성적 3개의 평균이 60이상이면 'pass'를 출력*/
+      var kor = 60;
+      var eng = 80;
+      var mat = 50;
+      var avg = (kor+eng+mat)/3;
+      if(avg>=60){
+    	  console.log('pass');   	  
+      }
+      
+      
+      
+      
+      
+   </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/lotto.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>행운의 로또</h1>
+   <input type='button' value='로또 발생' id='btn'/>
+   <div id='result'></div> 
+</div>
+<script>
+   var btn = document.getElementById('btn');
+   var r = document.getElementById('result');
+   r.innerHTML = ''; //r.innerHTML에 초깃값 설정
+   
+   btn.onclick = function(){
+	   
+	   for(var cnt=0; cnt<5; cnt++){
+		   var lotto = []; //변수 lotto에 배열 생성
+	   do{
+	      var flag = false; //중복여부 false=중복X | true=중복O
+	      var rnd = Math.random(); //변수 rnd에 랜덤함수 발생
+	   rnd = parseInt(rnd*45)+1; //변수 rnd에 1~45사이의 랜덤한 정수 생성
+
+	   // 중복 발생된 수 체크	   
+	   for(var i=0; i<lotto.length; i++){
+		  if(lotto[i] == rnd){
+			  flag=true;
+			  break;
+		  } 
+	   }
+	   
+	   if(flag) continue;
+	   
+	   lotto.push(rnd); //rnd에서 발생한 랜덤 수를 배열 lotto에 대입
+	   }while(lotto.length<6);
+	   
+	   r.innerHTML += lotto.sort(numSort) + "<br/>";
+	   }
+   }
+   function numSort(x,y){
+	   return x-y; //오름차순으로 정렬
+   }
+</script>
+</body>
+</html>

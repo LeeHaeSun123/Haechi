@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/keyevent.html</title>
+<script>                       
+   window.onload = function(){ //window가 load됐을 때 함수가 실행된다. script를 위에서 쓸 때 작성해줘야한다
+	   var frm = document.frm; //form객체를 가져옴
+	   //주민번호 앞자리
+	   frm.ju1.onkeyup = function(){
+		   var len = frm.ju1.value.length;//변수len에 name이 frm의 ju1의 초깃값의 길이를 대입한다
+		   console.log(len);
+		   if(len==6){
+			   frm.ju2.focus(); //len길이가 6일 때 커서가 ju2로 옮겨진다
+		   }
+	   }
+	   //연락처 사업자번호(3글자-4글자)
+	   frm.p1.onkeyup = function(){
+		   var len = frm.p1.value.length; //변수len에 name이 frm의 p1의 초깃값의 길이를 대입한다
+		   if(len==3) frm.p2.focus(); //len길이가 3일 때 커서가 p2로 옮겨진다
+		   }
+	   frm.p2.onkeyup = function(){
+		   var len = frm.p2.value.length; //변수len에 name이 frm의 p2의 초깃값의 길이를 대입한다
+		   if(len==4) frm.p3.focus(); //len길이가 4일 때 커서가 p3으로 옮겨진다
+	   }
+   }
+</script>
+</head>
+<body>
+<div id='javascript'>
+   <h1>KeyEvent</h1>
+   <form name='frm'>
+      <label>주민번호</label>
+      <input type='text' size='6' name='ju1'/> -
+      <input type='text' size='7' name='ju2'/>
+      <br/>
+      <label>연락처</label>
+      <input type='text' size='4' name='p1'/> -
+      <input type='text' size='5' name='p2'/> -
+      <input type='text' size='5' name='p3'/>
+   </form>
+</div>
+</body>
+</html>

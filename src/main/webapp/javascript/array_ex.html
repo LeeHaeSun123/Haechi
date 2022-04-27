@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/array_ex.html</title>
+<style>
+#javascript{
+   width : 700px;
+   margin : 10px anto;
+}
+#javascript h1{
+   text-align : center;
+}
+
+*{
+   box-sizing : border-box;
+   line-height : 1.2em;
+   margin-bottom : 5px;
+}
+
+#javascript form>label{
+   display : inline-block;
+   width : 80px;
+   text-align : right;
+}
+
+#javascript #result{
+   margin-top : 20px;
+   padding : 12px;
+   border : 2px solid #999;
+   min-height : 300px;
+}
+
+#javascript .r{
+   border : 0;
+   border-bottom : 1px solid #888;
+   text-align : right;
+}
+
+#javascript.btn{
+   text-align : center;
+}
+
+#javascript.save_btn{
+   text-align : center;
+}
+
+#javascript.print_btn{
+   text-align : center;
+}
+</style>
+</head>
+<body>
+<div id='javascript'>
+<h1>매출입력</h1>
+<form name='frm'>
+   <label>상품명</label>
+   <input type='text' name='product' value='자동차'>
+   <br/>
+   <label>수량</label>
+   <input type='text' name='ea' value='5'>
+   <br/>
+   <label>단가</label>
+   <input type='text' name='price' value='10'>
+   <br/>
+   <label>계산</label>
+   <input type='button' value='계산' id='btn'>
+   <hr/>
+   <label>금액</label>
+   <input type='text' name='amount' class='r'>
+   <br/>
+   <label>부가세</label>
+   <input type='text' name='tax' class='r'>
+   <br/>
+   <label>총액</label>
+   <input type='text' name='total' class='r'>
+   <br/>
+   <hr/>
+   <input type='button' value='저장' id='btn_save'/>
+   <br/>
+   <input type='button' value='출력' id='btn_print'/>
+   <br/>
+</form>
+<div id='result'></div>
+<script>
+
+   function Amount(ea,price){
+	   var ea = Number(ea);
+	   var price = Number(price);
+	   var amt = (ea*price)/1.1;
+	   return amt; //금액
+   }
+   
+   function Tax(amt){
+	   var ta = amt*0.1;
+	   return ta; //부가세
+   }
+   
+   function ResultAmt(ta,amt){
+	   var tot = ta+amt;
+	   return tot;
+   }
+   
+   
+   var frm = document.frm;
+   frm.btn.onclick = function(){
+	   var a = frm.ea.value; //수량 초기값
+	   var b = frm.price.value; //단가 초깃값
+	   var c = Amount(a,b); //금액연산(수량,단가)
+	   var d = Tax(c); //부가세
+	   var e = ResultAmt(d,c); //총액
+	   
+	   
+	   frm.amount.value = c.toFixed(0);
+	   frm.tax.value = d.toFixed(0);
+	   frm.total.value = e.toFixed(0);
+   } 
+   
+   var products =[]; //data가 저장될 배열
+   frm.btn_save.onclick = function(){
+	   var array = {
+           'product' : frm.product.value,
+           'ea' : frm.ea.value,
+           'price' : frm.price.value,
+           'amount' : frm.amount.value,
+           'tax' : frm.tax.value,
+           'total' : frm.total.value
+	   }
+	   products.push(array);
+	   }
+    	   
+    	   var frm = document.frm;
+    	   var r = document.getElementById('result');
+    	   
+   frm.btn_print.onclick = function(){
+	   var str = '<h3>매출 현황<h3>'
+	           + '<br/>'
+	           + '<span class= "product">상품명</span>' + '</br>' 
+	           + '<span class= "ea">수량</span>' + '</br>' 
+	           + '<span class= "price">단가</span>' + '</br>' 
+	           + '<span class= "amount">금액</span>' + '</br>' 
+	           + '<span class= "tax">부가세</span>' + '</br>' 
+	           + '<span class= "total">총액</span>' + '</br>' 
+	           
+	   
+	   for(x of products){
+		   str =
+			   "<span class='product'>" + '<상품명>' +  x.product + "</span>" + '</br>' 
+		       + "<span class='ea'>" + '<수량>' +  x.ea + "</span>" + '</br>' 
+		       + "<span class='price'>" + '<단가>' + x.price + "</span>" + '</br>' 
+		       + "<span class='amount'>" + '<금액>' + x.amount + "</span>" + '</br>' 
+		       + "<span class='tax'>" + '<부가세>' + x.tax + "</span>" + '</br>' 
+		       + "<span class='total'>" + '<총액>' + x.total + "</span>";
+	   }
+   r.innerHTML = str;
+   }
+   
+</script>
+</div>
+</body>
+</html>

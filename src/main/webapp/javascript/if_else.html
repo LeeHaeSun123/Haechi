@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/if_else.html</title>
+</head>
+<body>
+   <div id='javascript'>
+   <h1>if~else</h1>
+      <script>
+      /*나이가 18세 이상이면 '판매' 그렇지 않으면 '판매불가'*/
+      var age=20;
+      if(age>=18){
+    	  console.log('판매');   	  
+      }
+      else{
+    	  console.log('판매불가');
+      }
+      console.log('안녕히 가세요');
+      console.log('--------------');
+      /*키가 2m이상이거나 몸무게가 150kg이상이면 '탑승불가'
+      그렇지 않으면 '탑승가능'*/
+      var h=180;
+      var w=160;
+      if(h>=200 || w>=150){
+    	  console.log('탑승불가');
+      }
+      else{
+    	  console.log('탑승가능');
+      }
+      console.log('즐거운 탑승 되세요');
+      console.log('--------------');
+      /*3개 성적의 평균이 60이상이고, 각 과목의 성적이
+      모두 40이상일 때 'pass' 그렇지 않으면 'fail'*/
+      var kor=80;
+      var eng=39;
+      var mat=70;
+      var avg=(kor+eng+mat/3);
+      if(avg>=60 && kor>=40 && eng>=40 && mat>=40){
+    	  console.log('pass');
+      }
+      else{
+    	  console.log('fail');
+      }
+      console.log('즐거운 학교생활~!');
+      </script>
+     
+   </div>
+</body>
+
+</html>

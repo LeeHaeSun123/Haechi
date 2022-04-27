@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html/table</title>
+</head>
+<body>
+<h1>table 만들기</h1>
+<h2>기본형</h2>
+<table border='1' width='300px' height='100px'>
+  <tr align='center'>
+    <td>A</td>
+    <td>B</td>
+  </tr>
+  <tr align='right'>
+     <td>C</td>
+     <td>D</td>
+  </tr>
+  <tr align='center'>
+     <td align='left'>E</td>
+     <td>F</td>
+  </tr>
+</table>
+
+
+<h2>테이블 헤더형</h2>
+<table border='1' width='300px' height='100px'>
+   <tr>
+     <th>NO</th>   
+     <th>성명</th>
+     <th>연락처</th>
+     <th>이메일</th>
+   </tr>
+   <tr>
+     <td>1234</td>
+     <td>길동이</td>
+     <td>010-1111-1111</td>
+     <td>hong@Korea.com</td>
+   </tr>
+   <tr>
+     <td>6789</td>
+     <td>춘향이</td>
+     <td>010-9292-8282</td>
+     <td>chun@Korea.com</td>
+   </tr>
+</table>
+
+<h2>행 병합</h2>
+<table border='1' width='300px' height='150px'>
+   <tr>
+      <th>H1</th>
+      <th>H2</th>
+      <th>H3</th>
+   </tr>
+   
+   <tr>
+      <td>A</td>
+      <td>B</td>
+      <td rowspan='3'>C</td>   
+   </tr>
+   
+   <tr>
+      <td>F</td>
+      <td>G</td>     
+   </tr>   
+</table>
+
+<h2>열병합</h2>
+<table border='1' width='300px'>
+   <tr>
+      <th>H1</th>
+      <th>H2</th>
+   </tr>
+      
+   <tr>
+      <td>A</td>
+      <td>B</td>
+   </tr>
+   
+   <tr>
+      <td>C</td>
+      <td>D</td> 
+   </tr>
+   
+   <tr>
+      <td colspan='2'>E</td>   
+   </tr>   
+</table>
+
+</body>
+</html>

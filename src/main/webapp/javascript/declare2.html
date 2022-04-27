@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/declare2.html</title>
+<script>
+   function a(){
+	   alert('방가~~~');
+   }
+</script>
+</head>
+<body>
+<div id='declare'>
+   <h1>javascript를 inline형태로 선언</h1>
+   <input type='button' value='CLICK'
+      onclick='javascript:a=50; b=60; alert(a+b)'>
+   
+   <!-- 버튼을 클릭하면 자바스크립트 함수 a를 실행시켜라 -->   
+   <input type='button' value='CALL'
+      onclick='a()'>
+</div>
+</body>
+</html>

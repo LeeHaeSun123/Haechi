@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='exam_object2.js'></script>
+</head>
+<body>
+<div id='javascript'>
+   <h1>입출금</h1>
+   <form name='frm'>
+      <label>계좌</label>
+      <input type='search' name='account' value='12345'>
+      <output name='accName'></output>
+      <br/>
+      <label>거래</label>
+      <label><input type='radio' name='trans' value='입금'  checked>입금</label>
+      <label><input type='radio' name='trans' value='출금'>출금</label>
+      <br/>
+      <label>일자</label>
+      <input type='date' name='nal'/>
+      <br/>
+      <label>금액</label>
+      <input type='text' name='amount' value='1000'/>
+      <input type='button' value='확인' name='btnSave'/>
+      
+      
+      <hr/>
+      <label></label>
+      <input type='button' value='출력' name='btnPrint'/>
+      <input type='button' value='전체 계좌정보 출력' name='btnPrintAccount'/>
+      <input type='button' value='신규 계좌 추가' name='btnAddAccount'/>
+   </form>
+   <div id='result'>LIST</div>
+</div>
+</body>
+</html>

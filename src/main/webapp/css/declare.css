@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/*external type*/
+div.external{
+	color:#f00;
+	border:2px dotted #f44;
+	background-color:#fee;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_test3.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>판매 결과</h1>
+   <form name='frm'>
+      <label>품명</label>
+      <input type='text' name='product' value='핸드폰'/>
+      <br/>
+      <label>수량</label>
+      <input type='text' name='ea' value='10'/>
+      <br/>
+      <label>단가</label>
+      <input type='text' name='price' value='1000'/>
+      <input type='button' name='btn' value='계산'/>
+      <hr/>
+      <label>금액</label>
+      <input type='text' name='amount'/>
+      <br/>
+      <label>부가세</label>
+      <input type='text' name='vat'/>
+      <br/>
+      <label>총액</label>
+      <input type='text' name='total'/>     
+   </form>    
+</div>
+<script>
+//금액을 연산하는 함수 Amount(ea,price)를 선언하고 금액을 반환
+   function Amount(ea,price){
+	var ea = Number(ea);
+	var price = Number(price);
+	var c = (ea*price)/1.1; //금액
+	return c;
+}
+//금액을 전달받아 부가세 연산 Tax(amount)를 선언하고 부가세를 반환
+   function Tax(c){
+	var d = c*0.1; //부가세
+	return d;
+}
+
+//금액과 부가세를 전달받아 총액을 반환하는 함수 ResultAmt(amt, tax)를 선언
+   function ResultAmt(c,d){
+	var e = c+d; //총 액(금액+부가세)
+	return e;
+}
+
+//계산버튼이 클릭되면 실행되는 함수
+   var frm = document.frm;
+   frm.btn.onclick = function(){
+	   var f = frm.ea.value; //수량 초기값
+	   var g = frm.price.value; //단가 초기값
+	   var h = Amount(f, g); //금액연산(수량,단가)
+	   var i = Tax(h); // 부가세
+	   var j = ResultAmt(h,i); //총 액
+	   
+	   console.log(h);
+	   console.log(i);
+	   console.log(j);
+	   
+	   frm.amount.value = h.toFixed(0);
+	   frm.vat.value = i.toFixed(0);
+	   frm.total.value = j.toFixed(0);
+   }
+</script>
+</body>
+</html>

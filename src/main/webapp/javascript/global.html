@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/global</title>
+</head>
+<body>
+<div id='global'>
+   <h1>전역형 함수</h1>
+   <script>
+      a=100;
+   </script>
+   
+   <script>
+      function my(){
+    	  a=200;
+      }
+      my(); //my함수를 호출(실행)
+   </script>
+   
+   <script>
+      console.log('a=' + a);
+   </script>
+
+</div>
+
+</body>
+</html>

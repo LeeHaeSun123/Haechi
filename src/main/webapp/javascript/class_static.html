@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/class_static.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>static(정적) 메소드</h1>
+   <script>
+      class Bank{  //static(공유된 클래스, 공유자원)
+    	  static money = 0;
+    	  static deposit(m){
+    		  this.monet += m;
+    	  }
+    	  static withdraw(m){
+    		  this.money -= m;
+    	  }
+      }
+      Bank.deposit(100);
+      console.log(Bank.money);
+      Bank.withdraw(50);
+      console.log(Bank.money);
+   </script>
+</div>
+</body>
+</html>

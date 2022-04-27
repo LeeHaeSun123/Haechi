@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/form_select.html</title>
+<style>
+#javascript{
+   width : 400px;
+   margin : 30px auto;
+}
+
+#javascript form select{
+   width : 90px;
+}
+
+#javascript form>div{
+   display : inline-block;
+}
+
+</style>
+</head>
+<body>
+<div id='javascript'>
+   <h1>상품예매</h1>
+   <form name='frm'>
+      <div>
+         지역<br/>
+      <select name='city' size='5'>
+         <option value='A'>A</option>
+         <option value='B'>B</option>
+         <option value='C'>C</option>
+      </select>
+      </div>
+      <div>
+         매장<br/>
+         <select name='store' size='5'>
+            <option>가</option>
+            <option>나</option>
+            <option>다</option>
+            <option>라</option>
+         </select>
+      </div>
+      <div>
+         상품<br/>
+         <select name='product' size='5'>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+         </select>
+      </div>
+   </form>
+</div>
+
+<script>
+   var data = [
+	   {'city' : '경기도', 'store' : '경기 1', 'product' : '사과'},
+	   {'city' : '경기도', 'store' : '경기 1', 'product' : '배'},
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '복숭아'},
+	   
+	   {'city' : '제주도', 'store' : '제주도 1', 'product' : '사과'},
+	   {'city' : '경기도', 'store' : '경기 2', 'product' : '포도'},
+	   {'city' : '경기도', 'store' : '경기 2', 'product' : '바나나'},
+	   
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '사과'},
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '배'},
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '복숭아'},
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '포도'},
+	   {'city' : '서울', 'store' : '서울 1', 'product' : '메론'},
+	    
+	   {'city' : '서울', 'store' : '서울 2', 'product' : '메론'},
+	   {'city' : '서울', 'store' : '서울 2', 'product' : '바나나'},
+	   {'city' : '부산', 'store' : '부산 2', 'product' : '오렌지'},
+   ]
+   
+   var frm = document.frm;
+   
+    //지역(city)을 중복없이 처리
+    var temp = [] //지역명이나 매장명이 저장될 임시 배열
+    for(x of data){
+	   var index = temp.indexOf(x.city);//indexOf true=0, false=-1을 반환한다
+	   if(index == -1) temp.push(x.city);
+   } //temp : '서울', '경기도', '부산' 이 대입된다
+   
+   //중복되지 않는 temp배열의 값을 사용하여 select에 Option을 추가
+   frm.city.length = 0; // 기존자료를 모두 삭제->'경기도','서울','C'->'경기도','서울'만 남는다
+   for(var x in temp){
+	   var obj = new Option(temp[x], temp[x]); //첫 번째temp[x]=text, 두 번째temp[x]=value값
+	   frm.city.options[x] = obj; //frm에 있는 city의 목록에서 현재 옵션 가져와서 obj에 넣기
+   }
+   //obj='부산'
+   
+   //사용자가 선택한 지역에 따른 매장 정보를 중복없이 처리
+   frm.city.onchange = function(){
+   var choiceCity = frm.city[frm.city.selectedIndex].value; //사용자가 선택한 city의 value값
+   temp = []; //temp배열 선언
+   for(x of data){
+	   if(x.city == choiceCity){ 
+		   var index = temp.indexOf(x.store);
+		   if(index<0) temp.push(x.store);
+	   }
+   }
+   frm.store.length = 0; //frm에 있는 store의 기존자료를 모두 삭제
+   for(x in temp){
+	   var obj = new Option(temp[x], temp[x]);
+	   frm.store.options[x] = obj;
+   }
+   }
+   console.log('--------------미션--------------');
+   
+   
+   //temp = ['경기도', '서울', '제주도', '부산']
+   
+   var temp_1 = []; //변수 temp_1 배열 생성
+   for(x of data){ //data 중
+	   var index_1 = temp_1.indexOf(x.product); //변수 index_1에 x.product의 문자열의 index 값을 대입
+	   if(index_1 == -1) temp_1.push(x.product);//변수 index_1의 값이 -1(false)일 때 temp_1에 추가
+   }
+   //temp_1 = ['사과', '배', '복숭아', '포도', '바나나', '메론', '오렌지'](중복X)
+   
+   for(var x in temp_1){ //temp_1 = ['사과', '배', '복숭아', '포도', '바나나', '메론', '오렌지']의 배열 중
+	   var obj_1 = new Option(temp_1[x], temp_1[x]); //변수 obj_1에 새로운 옵션 추가-> temp_1[x]의 text와 temp_1[x]의 value값을 대입
+	   
+	   frm.product.options[x] = obj_1; //obj_1의 값을 frm에 있는 product 옵션에 추가
+   }
+   
+   var temp_3 =[]; //temp_3 배열 생성
+   for(x of data){ //data 중
+	   var index_2 = temp_3.indexOf(x.store); //변수 index_2에 x.store의 문자열의 index값이 같을 때 대입
+	   if(index_2 == -1) temp_3.push(x.store); //x.store중 변수 중 index 값이 -1(false)일 때 temp_3에 추가
+   }
+   //temp_3 = ['경기 1', '서울 1', '제주도 1', '경기 2', '서울 2', '부산 2'](중복X)
+   
+   frm.store.onchange = function(){ //frm에 있는 store값이 바뀔 때 마다 function()이 실행
+	   var choiceStore = frm.store[frm.store.selectedIndex].value; //choiceStore란 변수에 내가 선택한 항목(선택한 옵션)의 value 값을 저장
+	   var temp_2 =[]; //temp_2 배열 생성
+	   for(x of data){ //data 중
+		   if(x.store == choiceStore){ //x.store=['서울1', '서울2', '경기1', '경기2', '제주도1', '부산1']중의 값과 choiceStore값이 같을 때			   
+			   var index_3 = temp_2.indexOf(x.product); //변수 index_3에 x.product의 문자열의 index값을 대입
+			   if(index_3 < 0) temp_2.push(x.product); //변수 index_3의 index값이 0보다 작을 때(-1) temp_2에 x.product의 값을 대입		   
+		   }
+	   }
+   frm.product.length = 0; //frm에 있는 product의 기존자료를 모두 삭제
+   for(x in temp_2){ //배열 temp_2의 값 중
+	   var obj_2 = new Option(temp_2[x], temp_2[x]);//변수 obj_2에 새로운 옵션 추가-> temp_2[x]의 text와 temp_2[x]의 value값을 대입
+	   frm.product.options[x] = obj_2; //obj_2의 값을 frm에 있는 product 옵션에 추가
+   }
+   }
+   
+   
+   
+  /* for(x in temp_2){
+	   var obj_1 = new Option(temp_2[x], temp_2p[x]);
+	   frm.product.options[x] = obj_1;
+   }*/
+   /*
+   console.log('-------------');
+   //for i(in data){}
+   for(i=0; i<data.length; i++){
+	   console.log(data[i].city, data[i].store, data[i].product);
+   }
+   */
+</script>
+</body>
+</html>

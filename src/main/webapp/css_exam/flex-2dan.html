@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/flex-2dan</title>
+<style>
+.main{
+   display:flex;
+   flex-direction:row;
+   flex-wrap:wrap;
+   padding:1px;
+}
+.header, .main>div, .footer{
+   border:1px solid #000;
+   box-sizing:border-box;
+   padding:1px;
+}
+
+.main>div:first-child{  
+   flex-basis:300px;
+   flex-shrink:0;
+}
+
+.main>div:nth-child(2){
+   flex-grow:1;
+   flex-shrink:1;
+   flex-basis:410px; 
+}
+
+.main>div:last-child{
+   flex-grow:1;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>flex-2dan</h2>
+<div class='header'>
+   <div>header</div>
+</div>
+
+<div class='main'>
+   <div class='a'>a</div>
+   <div class='b'>b</div>
+   <div class='c'>c</div>
+</div>
+
+<div class='footer'>footer</div>
+
+</body>
+</html>
+

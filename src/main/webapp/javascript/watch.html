@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/watch.html</title>
+<style>
+#watch{
+   border:3px solid #999;
+   padding : 30px;
+   text-align : cetner;
+}
+</style>
+</head>
+<body>
+<div id='javascript'>
+   <h1>디지털 시계</h1>
+   <div id='watch'></div>
+</div>
+<script>
+   var week = ["일","월","화","수","목","금","토"];
+   var watch = document.getElementById('watch');
+   setInterval(watchFunc,1000); //1초에 한 번씩 호출(갱신된다)
+   
+
+   
+   function watchFunc(){
+   var now = new Date(); //변수 now '오늘날짜 만들기'
+   var str = ''; //변수 str을 생성->id=watch의 div영역에 표시하기 위해
+   
+   var hour = now.getHours();
+   var min = now.getMinutes();
+   var sec = now.getSeconds();
+   
+   if(sec < 10) sec = '0' + sec;
+   if(min < 10) min = '0' + min;
+   if(hour < 10)hour = '0' + hour;
+   
+   str = now.getFullYear() + "년 " 
+       + (now.getMonth()+1) + "월 " 
+       + now.getDate() + "일 " 
+       + week[now.getDay()] + "요일 " //now.getDay()만 하면 '5요일'로 출력
+       + hour + ":"
+       + min + ":"
+       + sec;
+   
+   watch.innerHTML = str;
+   }
+</script>
+</body>
+</html>

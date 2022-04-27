@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/class_extends.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>class 상속</h1>
+   <script>
+      class Parent{
+    	  get output(){
+    		  console.log('Parent.output().....');
+    	  }
+      }
+      
+      class Son extends Parent{
+    	  get output(){
+    		  console.log('Son.output()......');
+    	  }
+      }
+      var s = new Son();
+      s.output;
+      
+      //--------------------
+      
+      class Animal{
+    	  get body(){
+    		  console.log('동물의 몸체');
+    	  }
+      }
+      
+      class Bird extends Animal{
+    	  get wing(){
+    		  console.log('새는 날개가 있다.');
+    	  } //Bird는 몸체도 있고 날개도 있다(Animal을 상속받았기 때문)
+      }
+      
+      class Dog extends Animal{
+    	  get Leg(){
+    		  console.log('강아지는 다리가 있다.');
+    	  } // Leg는 몸체도 있고 다리도 있다(Animal을 상속받았기 때문)
+      }
+      
+      var birdObj = new Bird();
+      birdObj.body; //'동물의 몸체'
+      birdObj.wing; //'새는 날개가 있다.'
+      
+      var dogObj = new Dog();
+      dogObj.body; //'동물의 몸체'
+      dogObj.Leg; //'강아지는 다리가 있다.'
+      
+      class DogBird extends Dog{
+    	  get wing(){
+    		  console.log('날개도 있다.');
+    	  }
+      }
+      
+      var db = new DogBird();
+    	  db.body; //'동물의 몸체'
+    	  db.wing; //'날개도 있다.
+    	  db.Leg; //'강아지는 다리가 있다.'
+      
+   </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/grid</title>
+<style>
+.box>div{
+   border:1px solid #aaa;
+   padding:10px;
+}
+
+.box{
+   display:grid;
+   gap:10px;
+   --grid-template-rows:1fr 3fr 2fr 4fr 1fr;
+   --grid-template-columns:1fr 3fr 2fr 4fr 1fr;
+   grid-template-rows:1fr 5fr 1fr;
+   grid-template-columns:250px 1fr 200px;
+}
+
+.box>div:first-child{
+   grid-column-start:1;
+   grid-column-end:4;
+}
+
+.box>div:last-child{
+   grid-column-start:1;
+   grid-column-end:4;
+}
+.box>div{
+   border:2px solid #f33;
+   padding:10px;
+}
+.box2{
+   display:grid;
+   gap:10px;
+   grid-template-columns:repeat(3,150px);
+}
+
+/*grid-area 속성을 각 item에 붙이고, grid-template-areas를 사용하여 
+2차원적 레이아웃 구성 */
+
+.h{grid-area:header;}
+.m{grid-area:menu;}
+.a{grid-area:left;}
+.b{grid-area:center;}
+.c{grid-area:right;}
+.f{grid-area:footer;}
+
+.box3>div{
+   border:6px solid #999;
+   padding:20px;
+   border-radius:15px;
+}
+
+.box3{
+   margin:30px;
+   display:grid;
+   gap:6px;
+   grid-template-areas:
+      "header header menu"
+      "left center menu"
+      "left right right"
+      "footer footer footer"
+}
+
+</style>
+</head>
+<body>
+   <div class='box'>
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>E</div>
+   </div>
+   
+<div class='box2'>
+   <div>1</div><div>2</div><div>3</div>
+   <div>4</div><div>5</div><div>6</div>
+   <div>7</div><div>8</div><div>9</div>
+   <div>10</div><div>11</div><div>12</div>
+</div>
+
+<div class='box3'>
+
+   <div class='h'>
+   인생을 청춘은 설레는 얼마나 청춘이 인간이 아름다우냐? 
+   </div>
+   
+   <div class='m'> 모래뿐일 그들의 풀이 붙잡아 너의 길을 피는 천자만홍이 있으랴?
+    이 긴지라 노래하며 무엇이 무엇을 보이는 유소년에게서 것이다. 
+   </div>
+   
+   <div class='a'>이상의 놀이 구할 공자는 방황하였으며, 창공에 것이다. 
+   천자만홍이 끝까지 설산에서 가치를 싸인 커다란 넣는 무엇이 바로 운다. 
+   </div>
+   
+   <div class='b'>있을 곳으로 청춘을 수 같은 물방아 이상이 찬미를 것이다.
+   소금이라 평화스러운 꽃이 광야에서 같이, 위하여 귀는 노년에게서 부패뿐이다. 피고 얼음과 그와 할지니, 모래뿐일 힘있다. 
+   그들의 이상이 이상 산야에 이것이야말로 못할 끝까지 뿐이다.
+   </div>
+   
+   <div class='c'>따뜻한 품으며, 물방아 피가 이것이다. 
+   </div>
+   
+   <div class='f'>따뜻한 품으며, 물방아 피가 이것이다. 열매를 방황하였으며, 두손을 이상 청춘은 철환하였는가? 이상 뜨고, 찾아다녀도, 쓸쓸한 것은 풀밭에 보라. 하는 예가 같이, 이 뿐이다.
+   밥을 사랑의 이 가치를 피고, 옷을 것이다. 뜨거운지라, 사랑의 그들은 얼음이 영원히 전인 때문이다. 찾아 싸인 든 우는 위하여 풀밭에 있는가? 긴지라 가는 바이며, 대고, 교향악이다.
+   사라지지 그들은 그것은 그들은 말이다. 위하여, 광야에서 피에 보라. 과실이 귀는 얼음에 싸인 곧 남는 청춘의 수 말이다.
+   </div>
+   
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/dialog.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>3가지 대화창</h1>
+   <input type='button' value='ALERT' id='btnAlert'/>
+   <input type='button' value='CONFIRM' id='btnConfirm'/>
+   <input type='button' value='PROMPT' id='btnPrompt'/>
+   <input type='button' value='RED' onclick='backColor("#FF0000")'>
+   <input type='button' value='BULE' onclick='backColor("#0000FF")'>
+</div>
+<script>
+   var btnAlert = document.getElementById('btnAlert');
+   var btnConfirm = document.getElementById('btnConfirm');
+   var btnPrompt = document.getElementById('btnPrompt');
+   
+   btnAlert.onclick = function(){
+	   alert("OK"); //alert창이 뜨면 다른곳은 클릭 할 수 없다
+   }
+   
+   btnConfirm.onclick = function(){
+	   var b = confirm("정말 삭제하시겠습니까?");
+	   if(b)  console.log("파일을 삭제합니다.");
+	   else console.log("삭제가 취소되었습니다."); 
+   }
+   
+   btnPrompt.onclick = function(){
+	   var v = prompt('당신의 나이는 얼마?');
+	   console.log('나이 :' + v);
+   }
+
+   
+   function backColor(color){
+	   document.bgColor = color;
+	   document.fgColor = '#FFFFFF';
+   }
+</script>
+</body>
+</html>

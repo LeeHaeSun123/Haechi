@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/form_radio.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>radio 버튼</h1>
+   <form name='frm'>
+   <label><input type='radio' name='ani' value='강아지'>강아지</label>
+   <label><input type='radio' name='ani' value='고양이'>고양이</label>
+   <label><input type='radio' name='ani' value='햄스터'>햄스터</label>
+   <label><input type='radio' name='ani' value='돼지'>돼지</label>
+   <label><input type='radio' name='ani' value='닭'>닭</label>
+   <label><input type='radio' name='ani' value='도마뱀'>도마뱀</label>
+   <label><input type='radio' name='ani' value='거북'>거북</label>
+   <p/>
+   <input type='button' value='선택' name='btn'/>
+   </form>
+   <div id='result'></div>
+</div>
+<script>
+   // 라디오 버튼에서 선택한 항목을 result영역에(=r.innerHTML)출력
+   var frm = document.frm;
+   
+   /*이전에 선택한 라디오 버튼 표시*/
+   var before = localStorage.getItem('ani');
+   for(x in frm.ani){
+	   if(frm.ani[x].value == before){
+		   frm.ani[x].checked=true;
+	   }
+   }
+
+   
+   var r = document.getElementById('result');
+   frm.btn.onclick = function(){
+	   var len = frm.ani.length;
+	   r.innerHTML = '<li>갯수 : ' + len + '</li><hr/>';
+	   for(x of frm.ani){
+		   r.innerHTML += '<li>' + x.value + '</li>'
+	   }
+	   r.innerHTML += '<hr/>선택한 동물';
+	   for(x in frm.ani){
+		   r.innerHTML += '<li>' + x.value + '</li>'
+		   localStorage.setItem('ani', x.value);
+		   break;
+	   }
+   }
+</script>
+</body>
+</html>

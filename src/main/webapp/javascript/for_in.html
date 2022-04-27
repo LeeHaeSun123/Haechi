@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/for_in.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>for~in</h1>
+   <script>
+      var obj=['강아지','송아지','망아지','고양이'];
+      console.log(obj[0]);
+      console.log(obj[1]);
+      
+      for(var x in obj){ //배열 obj의 index값을 하나씩 x에 대입
+    	  console.log(x, obj[x]);
+      }
+      console.log('----------------------------------');
+      /*배열 score에 임의의 정수를 나열하고, 
+      점수가 60이상인 값만 출력
+      출력된 값들의 갯수와 평균을 추가로 출력해주세요*/
+      
+      var score=[15,48,89,67,512,23,25,12,332,245];
+      var number=0;
+      var avg=0;
+      var sum=0;
+      
+      for(var index in score){
+    	  if(score[index]>=60){
+    		  console.log(score[index]);
+    		  sum=sum+(score[index]);
+    		  
+    		  if(index=true){
+    		     index=1;
+    		     number=number+index;  		 
+    		  }	  
+                 avg=sum/number;
+    	  } 
+    	  
+      }
+      console.log('number=' +  number);
+      console.log('avg=' +  avg);
+     
+     
+   </script>
+</div>
+</body>
+</html>

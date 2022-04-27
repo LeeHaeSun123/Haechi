@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/declare</title>
+<style>
+/*internal type*/
+div.internal{
+   color: #00f;
+   border:2px solid     #aaf;
+   background-color  :  #eef;
+}
+</style>
+<!-- css를 external 타입으로 사용하기 위해 -->
+<link rel='stylesheet' type='text/css' href='../css/declare.css'>
+</head>
+
+<body>
+<h1>CSS를 작성하는 3가지 방법</h1>
+<ol>
+   <li>인라인 방식</li>
+   <li>인터널 방식</li>
+   <li>익스터널 방식</li>
+</ol>
+
+<h2>인라인 방식</h2>
+<div style='color:#00f; border:2px solid #aaf; background-color:#eef;'>이해선</div>
+<div style='color:#00f; border:2px solid #aaf; background-color:#eef;'>홍길동</div>
+<div style='color:#00f; border:2px solid #aaf; background-color:#eef;'>일지매</div>
+
+<h2>인터널 방식</h2>
+<div class='internal'>이해선</div>
+<div class='internal'>홍길동</div>
+<div class='internal'>일지매</div>
+
+<h2>익스터널 방식</h2>
+<div class='external'>이해선</div>
+<div class='external'>홍길동</div>
+<div class='external'>일지매</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/class_contructor.html</title>
+</head>
+<body>
+   <h1>class의 생성자 테스트</h1>
+   <script>
+   //필드로만 구성되어 데이터 저장만 하는 클래스
+   class Test{
+	   name = '이해선';
+	   address = '서울대역 입구'
+   }
+   var t1 = new Test();
+   console.log('성명 : ', t1.name); // 출력 : [성명 : 이해선]
+   console.log('주소 : ', t1.address); // 출력 : [주소 : 서울대역 입구]
+   
+   //외부에서 아이디, 국어성적, 영어성적, 수학성적을 전달받아
+   //필드에 저장하는 클래스
+   class Test2{
+	   constructor(id, kor, eng, mat){ 
+		   this.id   = id;
+		   this.kor  = kor;
+		   this.eng  = eng;
+		   this.mat  = mat;
+	   }
+   }
+   var t2 = new Test2('h001', 90, 80, 70); //t2 = h001의 객체
+   var t3 = new Test2('a001', 50, 60, 70); //t3 = a001의 객체
+   //t2의 내용 출력
+   console.log('----------------------');
+   console.log('id : ', t2.id);
+   console.log('kor : ', t2.kor);
+   console.log('eng : ', t2.eng);
+   console.log('mat : ', t2.mat)
+   //t3의 내용 출력
+   console.log('id : ', t3.id);
+   console.log('kor :', t3.kor);
+   console.log('eng : ', t3.eng);
+   console.log('mat : ', t3.mat);
+   
+   //setter | getter 메서드
+   //주소(address), 연락처(phone)에 해당하는 setter|getter추가 테스트
+   class Test3{
+	   set setName(name) {this.name = name}; //this.name=class Test3의 필드, (name) = name
+	   get getName() {return this.name;}//name을 밖으로 내보내겠다
+	   
+	   set setAddress(address) {this.address = address};
+	   get getAddress() {return this.address};
+	   
+	   set setPhone(phone) {this.phone = phone};
+	   get getPhone() {return this.phone};
+   }
+   var t3 = new Test3();
+   t3.setName = 'lee'; //t.2setName('lee'); -> X
+   console.log('setter|getter test : ', t3.getName);
+   
+   t3.setAddress = '광명시';
+   console.log('Address : ', t3.getAddress);
+   
+   t3.setPhone = '010-1111-1111';
+   console.log('Phone : ', t3.getPhone);
+   
+   </script>
+</body>
+</html>

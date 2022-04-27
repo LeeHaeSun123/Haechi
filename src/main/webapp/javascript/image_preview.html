@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/image_preview.html</title>
+<style>
+#preview_image{
+   width : 200px;
+   height : 150px;
+   vertical-align : top;
+   margin-right : 5px;
+}
+</style>
+<script>
+function preview(ev){
+	var event = ev || window.event;
+	var file = event.srcElement.files[0];
+
+
+var reader = new FileReader();
+reader.onload = function(fev){
+	var pre_img = document.getElementById('preview_image');
+	var img = new Image();
+	img.src = reader.result;
+	pre_img.src = img.src;
+}
+reader.readAsDataURL(file);
+}
+</script>
+</head>
+<body>
+   <h1>이미지 미리 읽기</h1>
+   <form name = 'frm_pre_view'>
+      <div id='preview_zone'>
+         <img id='preview_imgage'>
+         <input type='file' onchange='preview()' name='ff'>
+      </div>
+   </form>
+   
+
+</body>
+</html>

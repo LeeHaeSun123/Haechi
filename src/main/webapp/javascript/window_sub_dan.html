@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/window_sub_dan.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>값 전달 및 전송</h1>
+   <script>
+      var r = window.opener.document.getElementById('result');
+      var frm = window.opener.document.frm;
+      var dan = Number(frm.dan.value);
+      var str = '';
+
+
+      for(var i=1; i<10; i++){
+    	  str += dan + ' * ' + i + ' = ' + (dan*i) + '\n';
+      }
+
+      frm.result.value = str;
+      r.innerHTML = str;
+   </script>
+</div>
+</body>
+</html>

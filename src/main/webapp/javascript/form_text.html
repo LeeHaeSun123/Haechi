@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+javascript/form_text/html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>text box에 있는 문자열 복사</h1>
+   <form name='frm'>
+   <label>원본</label>
+   <input type='text' name='ori' value='가나다라마바사'/>
+   <br/>
+   <label>사본</label>
+   <input type='text' name='paste'/>
+   <br/>
+   <input type='button' value='COPY' onclick='copy(this.form)'/>
+   
+   </form>
+   <script>
+   function copy(frm){
+	   frm.paste.value = frm.ori.value;
+   }
+   </script>
+</div>
+</body>
+</html>

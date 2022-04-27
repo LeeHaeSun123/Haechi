@@ -1,0 +1,5 @@
+@charset "UTF-8";
+/*넓이가 901이상 일 때 사용하는 스타일*/
+body{
+	background-color:#00f;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_test4.html</title>
+</head>
+<body>
+<input type='button' value='click' id='btn'/>
+
+<div id='javascript'>
+   <h1>익명형 함수 선언 | 즉시 실행 함수</h1>
+   <script>
+   //익명형
+      var A = function(){
+    	  alert('ok');
+      }
+      A();
+      
+      //즉시 실행 함수
+      (function B(){
+    	  alert('즉시 실행');
+      })()
+      
+      var btn = document.getElementById('btn');
+      btn.onclick = function(){
+    	  alert('click');
+      }
+   </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/if_elseif.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>if~else if</h1>
+   <script>
+      var a=4;
+      var k='';
+      
+      if(a==1){
+    	  k='a';
+      }
+      else if(a==2){
+    	  k='b';
+      }
+      else if(a==3){
+    	  k='c';
+      }
+      console.log('k=' + k);
+      console.log('공통');
+      console.log('--------------------');
+      /*회원 등급이 a,b,c,d로 나뉘어져있다 등급에 따라 사은품을
+      회원의 등급과 함께
+      출력하시오(사은품의 종류 : 세탁기, 비행기, 자동차, 요트)
+      성명 : 홍길동
+      등급 : a
+      사은품 : 세탁기*/
+      
+      var irum = 'hong gil dong';
+      var grade = 'a';
+      var pre = '화장지'; //회원의 등급에 따라서 추후에 결정될 사항
+      
+      if(grade=='a'){
+    	  pre = '세탁기';
+    	  
+      }
+      else if(grade=='b'){
+    	  pre = '비행기';
+      }
+      else if(grade=='c'){
+    	  pre = '자동차';
+      }
+      else if(grade=='d'){
+    	  pre = '요트';
+      }
+    	  
+      console.log('성명 :' + irum);
+      console.log('등급 :' + grade);
+      console.log('사은품:' + pre);
+      
+   </script>
+</div>
+</body>
+</html>

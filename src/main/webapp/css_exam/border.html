@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/border</title>
+<style>
+/* .main 안에 있는 div의 외각선과 넓이 높이를 임의의 지정*/
+.main>div{
+   border:4px solid #00f;
+   width:400px;
+   height:200px;
+   margin:80px;
+}
+
+.c1{
+   border-radius:0 40px 0 0;
+   box-shadow:-5px 10px 20px #77f;
+}
+
+.c2{
+   border-radius:0 100px 100px 0;
+   box-shadow:-10px 0 20px #f00;
+}
+
+.c3{
+   border-radius:100px 0 0 100px;
+   box-shadow:0 20px 20px #00f;
+}
+
+.c4{
+   border-radius:100px 100px 0 0;
+   box-shadow:0 -20px 20px #ff0;
+}
+
+.c5{
+   border-radius:0 100px 0 100px;
+   box-shadow:20px -20px 20px #aaa;
+}
+
+div.c6{
+   border-left-width:0;
+   border-right-width:0;
+   border-top-width:10px;
+   border-bottom-width:10px;
+}
+
+div.c7{
+   border-left-width:30px;
+}
+
+div.c8{
+   border-color:#f00;
+   border-bottom-width:30px;
+   border-radius:60px 60px 0 0;
+}
+</style>
+</head>
+<body>
+<div class='main'>
+   <div class='c1'>C!</div>
+   <div class='c2'>C2</div>
+   <div class='c3'>C3</div>
+   <div class='c4'>C4</div>
+   <div class='c5'>C5</div>
+   <div class='c6'>C6</div>
+   <div class='c7'>C7</div>
+   <div class='c8'>C8</div>
+</div>
+
+</body>
+</html>

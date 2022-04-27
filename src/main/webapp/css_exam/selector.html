@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Selector</title>
+<style>
+/*id가 mid인 요소의 문자색을 파란색으로*/
+#mid{
+   color:#00f;
+}
+
+/* id가 irum인 요소의 문자색을 #f00으로*/
+#irum{
+   color:#f00;
+}
+#phone{
+   color : #999;
+}
+
+/*class가 c1인 바탕색을 #ddd로*/
+
+.c1{
+   background-color:#ddd;
+   
+}
+/*class가 c2인 외곽선을 2px solid #aaa로 지정*/
+.c2{
+   border:2px solid #aaa;
+}
+/*class가 c3인 곳에 안쪽 여백을 20px, 바탕색을 #444*/
+.c3{
+  padding:20px;
+  background-color:#444;
+}
+.other{
+   font-family:궁서체;
+   font-size:30px;
+}
+
+/*자손, 후손--------------*/
+/* id가 phone인 요소의 문자색을 #999로*/
+#sel2>span{color:red;}
+#sel2 span{background-color:#ff0;}
+
+/* +(바로뒤), ~(뒤에있는 모든) ---------------*/
+#sel3>.c4+span{color:blue;}
+#sel3>.c4~span{background-color:#ff0;}
+
+</style>
+</head>
+<body>
+<h1>SELECTOR</h1>
+<div id='mid' class='c1 other'>MID</div>
+<div id='irum' class='c2other'>hong gil dong</div>
+<div id='phone' class='c3 other'>010-0000-0000</div>
+
+<h2>select(자손, 후손)</h2>
+<div id='sel2'>
+   <span>AAAAA</span>
+   <span>BBBBB</span>
+   <p>
+      <span>CCCCC</span>
+      <span>DDDDD</span>
+   </p>
+</div>
+
+<style>
+/* +(바로 뒤), ~(뒤에있는 모든)----------*/
+#sel3>.c4+span{color:blue;}
+#sel3>.c4~span{background-color:#ff0;}
+</style>
+
+<h2>+(바로뒤), ~(뒤에있는 모든)</h2>
+<div id='sel3'>
+   <span class='c4'>11111</span>
+   <span>22222</span>
+   <span>33333</span>
+   <p>
+       <span>44444</span>
+   </p>
+</div>
+
+<h2>태그 속성을 사용한 적용</h2>
+<style>
+   #sel4>input[type=text]{
+      color:#fff;
+      background-color:#00f;
+    }
+   
+   #sel4>input[type=password]{
+      background-color:#f00;
+   }
+   
+   
+</style>
+<div id='sel4'>
+   <input type='text' value='hong'/>
+   <input type='search' value='gil'/>
+   <input type='password' value='1111'/>
+</div>
+
+<h2>first-child / last-child / nth-child</h2>
+<style>
+   #sel5>ol>li:first-child{color:#f00;}
+   #sel5>ol>li:last-child{background-color:#ff0;}
+   #sel5>ol>li:nth-child(2n){color:#00f;}
+</style>
+<div id='sel5'>
+   <ol>
+      <li>강아지</li>
+      <li>고양이</li>
+      <li>송아지</li>
+      <li>망아지</li>
+      <li>돼지</li>
+      <li>병아리</li>
+   </ol>
+</div>
+
+<h2>가상 클래스(::)before / after</h2>
+<style>
+   #sel6>.c6::before{
+      content:'★★★';
+      color:#f00;
+   }
+   #sel6>.c7::after{
+      content:url(../images/imo.png);
+      color:#00f;
+   }
+</style>
+<div id='sel6'>
+   <div class='c6'>주요사항</div>
+   <div class='c7'>최고급 마우스</div>
+</div>
+</body>
+</html>

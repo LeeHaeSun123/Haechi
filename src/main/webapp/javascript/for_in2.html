@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/for_in2.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>for in을 사용하여 태그에 해당하는 속성 확인</h1>
+   <label>태그를 입력하세요</label>
+   <input type='text' size='4' id='tag' value='div'/>
+   <input type='button' value='RUN' id='btn'/>
+   <div id='result'></div>
+   <script>
+      var btn = document.getElementById('btn');
+      btn.onclick = function(){
+    	  var tag = document.getElementById('tag');
+    	  var obj = document.createElement(tag.value);
+    	  var r = document.getElementById('result');
+    	  var str = '<table border=1>';
+    	  str += '<tr>';
+    	  str += '<th>Attribute</th>';
+    	  str += '<th>Value</th>';
+    	  str += '</tr>';
+    	  
+    	  for(var x in obj){
+    		  console.log(x, '/' , obj[x]);
+    		  str += '<tr>'
+    		      + '<td>' + x      + '</td>'
+    		      + '<td>' + obj[x] + '</td>'
+    		      + '</tr>';
+    	  }
+    	  r.innerHTML = str;
+      }
+   </script>
+</div>
+</body>
+</html>

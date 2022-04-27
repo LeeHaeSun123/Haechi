@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/for_of.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>for~of와 for~in의 차이점</h1>
+   <form name='frm'>
+      <label><input type='checkbox' name='hobby' value='축구'>축구</label>
+      <label><input type='checkbox' name='hobby' value='야구'>야구</label>
+      <label><input type='checkbox' name='hobby' value='농구'>농구</label>
+      <label><input type='checkbox' name='hobby' value='배구'>배구</label>
+      <label><input type='checkbox' name='hobby' value='탁구'>탁구</label>
+      <label><input type='checkbox' name='hobby' value='족구'>족구</label>
+      <label><input type='checkbox' name='hobby' value='발야구'>발야구</label>
+      <p/>
+      <input type='button' value='FOR OF' id='btnOf'/>
+      <input type='button' value='FOR IN' id='btnIn'/>
+      <input type='button' value='CHECK' id='btnChk'/>
+   </form>
+   <div id='result'></div>
+   <script>
+      var r = document.getElementById('result');
+      var frm = document.frm; // var abc = document.getElementById('abc');
+
+      document.getElementById('btnIn').onclick = function(){
+    	  for(var x in frm.hobby){
+    	     //console.log(frm.hobby[x].value);     		  
+    	     console.log(x);
+    	  }
+    	  console.log('length=', frm.hobby.length);
+      }
+      
+      
+      document.getElementById('btnOf').onclick = function(){
+    	  for(var x of frm.hobby){
+    		  console.log(x); //순수 배열 요소만 출력된다
+    	  }  
+      }
+   /*for~of를 사용하여 체크된 체크박스의 value값을 출력*/
+      document.getElementById('btnChk').onclick = function(){      
+          for(var x of frm.hobby){
+	          if(x.checked){
+		         console.log(x.value);
+	          }
+	   }
+   }
+      
+   </script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_char.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>문자열 함수</h1>
+   <script>
+   // 문자열 
+   var ju = '801213-1234567';
+   console.log('substr.....');
+   console.log('생년 :', ju.substr(0,2)); //80
+   console.log('생월 :', ju.substr(2,2)); //12
+   console.log('생일 :', ju.substr(4,2)); //13
+   var gender = (ju.substr(7,1)%2==1)? '남자' : '여자';
+   console.log('성별 :', gender);
+   
+   //문자열 검색
+   var file = "abc.png";
+   var r = file.indexOf('png');
+   if(r>=0){
+	   console.log('이미지 파일이 존재함.');
+   }else{
+	   console.log('이미지 파일이 없음.');
+   }
+   
+   var p = file.charAt(0);
+   console.log('charAt(0)', p); //a
+   
+   //split
+   var data = "abc/123/가나다/강아지/def/456";
+   var array = data.split('/');
+   for(x of array){
+	   console.log(x); 
+   }
+   console.log('------------------------------');
+   
+   var data = "abc/123/가나다/강아지/def/456";
+   var array = data.split('/');
+   for(x of array){
+	   console.log(data, array);
+   }
+   
+   /*
+   [미션1]
+   엑셀을 통해 값을 전달 받았더니 아래와 같이 전달되었다
+   이를 split함수를 사용하여 문자열을 분해하고 그 결과를 출력하시오.
+   수신데이터 : "a001, 홍길동, 010-1111-1111, 12-120, hong@jotc.kr"
+   출력예)
+   아이디 : a001
+   성명 : hong
+   연락처 : 010-1111-1111
+   우편번호 : 12-120
+   이메일 : hong@jobtc.kr
+   */
+   
+   var a = "a001, 홍길동, 010-1111-1111, 12-120, hong@jotc.kr";
+   var b = a.split(',');
+   for(var x of b){
+
+   }
+   console.log('아이디 :' + (a,b[0]));
+   console.log('성명 :' + (a, b[1]));
+   console.log('연락처 :' + (a,b[2]));
+   console.log('우편번호 :' + (a,b[3]));
+   console.log('이메일 :' + (a,b[4]));
+   console.log('------------------------------');
+   /*[미션2]
+   학생 성적 데이터가 아래와 같이 수신되었다. 요구 사항과 같이 데이터를 처리하시오.
+   수신데이터 : "a001-기말고사-90,40,60"
+   [요구조건]
+   - 평균은 소수점 첫째자리까지
+   - pass조건 : 과락없이 평균60점이상.
+   [출력예]
+   학번 : a001
+   시험 : 기말고사
+   국어 : 90
+   영어 : 40
+   수학 : 60
+   총점 : 190
+   평균 : 63.3
+   결과 : pass
+   */
+   var c =  "a001-기말고사-90,40,60";
+   var d = c.split('-');
+   for (var y of d){
+	   
+   }
+   
+   console.log('학번 :' + (c,d[0]));
+   console.log('시험 :' + (c,d[1]));
+   
+   for (var x of d){
+	   for(var x of d[2]);
+	   var e = d[2].split(',');
+   }
+
+
+   console.log('국어 :' + (c,e[0]));
+   console.log('영어 :' + (c,e[1]));
+   console.log('수학 :' + (c,e[2]));
+   
+   kor = parseInt(e[0],10);
+   mat = parseInt(e[1],10);
+   eng = parseInt(e[2],10);
+   
+   var sum=0;
+   sum=kor+mat+eng;
+   
+   var avg = sum/3;
+ 
+   console.log('총점 :' + sum);
+   console.log('평균 :' + avg.toFixed(1));
+   
+   if(avg>=60){
+	   console.log('결과 : pass');
+   }
+   else
+	   console.log('결과 : fail');
+   
+   </script>
+</div>
+</body>
+</html>

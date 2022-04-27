@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/box</title>
+<style>
+.box{
+   width:400px;
+   height:300px;
+   border:3px solid #999;
+   /*좌우 여백이 자동이므로 box가 항상 화면 가운데 표시*/
+   margin:100px auto; 
+}
+
+.in{
+   width:100px;
+   height:100px;
+   border:1px solid #f00;
+   /*
+   margin-top:100px;
+   margin-left:100px;
+   margin:50px 0 0 50px
+   */
+   margin:100px auto;
+   
+   box-sizing:border-box;
+   
+   padding-top:60px;
+   padding-left:30px;
+}
+
+div.box2{
+   border:4px solid #f00;
+   box-sizing:border-box;
+   padding:20px;
+}
+.box2 li{
+   display:inline-block;
+   width:70px;
+   background-color:#aaa;
+   margin-right:2px;
+   padding:4px 2px;
+   text-align:center;
+}
+
+li:hover{
+   background-color:#000;
+   color:#fff;
+   cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+<h1>box model</h1>
+<div class='box'>
+   <div class='in'>
+    HONG
+   </div>
+</div>
+   
+<div class='box2'>
+   <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+      <li>D</li>
+   </ul>
+   이해선
+</div>
+</body>
+</html>

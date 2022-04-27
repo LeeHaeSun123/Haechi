@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/array_test2.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>concat : | join | reverse | push | shift | pop | splice</h1>
+   <script>
+      var mnt = ['백두산', '금강산', '설악산', '한라산', '치악산'];
+      var river = ['한강', '낙동강', '금강', '소금강', '섬진강', '두만강'];
+      
+      //mnt 배열과 river를 합쳐서 새로운 배열 all을 만드시오
+      var all = mnt.concat(river);
+      var all2 = river.concat(mnt);
+      console.log(mnt);
+      console.log(river);
+      console.log(all); //['백두산', '금강산', '설악산', '한라산', '치악산', '한강', '낙동강', '금강', '소금강', '섬진강', '두만강']
+      console.log(all2); //['한강', '낙동강', '금강', '소금강', '섬진강', '두만강', '백두산', '금강산', '설악산', '한라산', '치악산']
+      
+      //배열의 구분자를 '-' 바꾸어 출력
+      console.log('구분자를 - 표시로', mnt.join('-'));
+      
+      //all의 구분자를 '-->'로 바꾸어 출력
+      console.log(all.join('-->'));
+      
+      //all의 순서를 앞뒤로 바꾸어 출력
+      console.log(all.reverse().join('->'));
+      
+      //student배열을 만들고 'hong', 'kim', 'park'을 push를 사용하여 추가
+      var student = new Array(); //or var student = [];
+      student.push('hong');
+      student.push('kim');
+      student.push('park');
+      console.log(student); //['hong', 'kim', 'park']
+      
+      //student에서 첫번째값을 반환한 뒤 배열에서 삭제하기
+      var first = student.shift();
+      console.log(first, student); //hong 
+      
+      //student에서 마지막 요소를 반환하고 배열에서 삭제하기
+      var last = student.pop();
+      console.log(last, student); //park
+      
+      //mnt배열에서 2번째 값에서 2개를 삭제하기
+      mnt.splice(1,2);
+      console.log(mnt);
+      
+      var num = [9,4,11,66,44,6,8,4,100,1000];
+      console.log('sort 이전', num); //[9,4,11,66,44,6,8,4,100,1000]
+      num.sort(); //각 배열의 값을 문자처리하여 오름차 정렬한다
+      console.log('sort 이후', num); //[100, 1000, 11, 4, 4, 44, 6, 66, 8, 9]
+      river.sort();
+      console.log(river); //['금강', '낙동강', '두만강', '섬진강', '소금강', '한강']
+      
+      //my함수를 사용하여 숫자형으로 오름차 정렬
+      num.sort(my);
+      console.log('숫자형으로 sort', num); //[4, 4, 6, 8, 9, 11, 44, 66, 100, 1000]
+      
+      
+      //my2 함수를 사용하여 숫자형으로 내림차 정렬
+      num.sort(my2);
+      console.log('내림차 정렬', num); //[1000, 100, 66, 44, 11, 9, 8, 6, 4, 4]
+      
+      function my(a, b){
+    	  return a-b;
+      }
+      
+      function my2(a,b){
+    	  return b-a;
+      }
+      
+      /*아래의 배열을 성적순으로 정렬하여 console에 출력하시오*/
+      var score = [
+    	  {'name' : 'hong', 'kor' : 90},
+    	  {'name' : 'kim', 'kor' : 88},
+    	  {'name' : 'park', 'kor' : 50},
+    	  {'name' : 'choi', 'kor' : 99}
+    	  
+      ];
+      console.log('정렬 이전');
+      console.table(score);
+      
+      score.sort(scoreDesc);
+      console.table(score);
+      
+      function scoreDesc(a,b){
+    	  var r = a.kor - b.kor;
+    	  return r;
+      }
+      
+      console.log('---------------');
+      
+      score = [
+    	  ['hong', 90],
+    	  ['kim', 88],
+    	  ['park', 50],
+    	  ['choi',99]
+      ]
+      score.sort(scoreDesc2);
+      
+      function scoreDesc2(a,b){
+    	  var r = b[1]- a[1];
+    	  return r;
+      }
+      console.table(score);
+      console.log('---------------');
+      
+      var product = [
+    	   { 'name' : '컴퓨터', 'ea' : 1000, 'price' : 500, 'amt' : 0 },
+    	   { 'name' : '세탁기', 'ea' : 2000, 'price' : 300, 'amt' : 0 },
+    	   { 'name' : '냉장고', 'ea' : 3000, 'price' : 100, 'amt' : 0 },
+    	   { 'name' : '청소기', 'ea' : 4000, 'price' : 500, 'amt' : 0 }
+    	];
+      
+      product.sort(productDesc);
+      
+      console.table(product);
+      
+      function productDesc(a,b){
+    	  a.amt = a.ea*a.price;
+    	  b.amt = b.ea*b.price;
+    	  return b.amt-a.amt;
+      }
+      
+      function prouductDesc(x,y){
+    	  var r=-1;
+    	  if(x.name > y.name) r=1 //오름차순
+    	  return r;
+      }
+      
+      //forEach
+      console.clear();
+      console.log('배열을 출력하는 3가지 방법');
+      
+      for(i=0; i<river.length; i++){
+    	  console.log(river[i]);
+      }
+      
+      console.log('-------');
+      for(x of river){
+    	  console.log(x);
+      }
+      
+      console.log('-------');
+      river.forEach(function(x, index){
+    	  console.log(index, x);
+      })/*
+      금강
+      낙동강
+      두만강
+      섬진강
+      소금강
+      한강
+      */
+      
+      product.forEach(function (x,i){
+    	  console.log(i,x);
+      })
+      
+      //product를 일정한 포멧을 갖도록 출력
+      product.forEach(function(x,i){
+    	  console.log((i+1) + '번째 상품--------------');
+    	  console.log('제품명 :', x.name);
+    	  console.log('단가 :', x.price);
+    	  console.log('수량 :', x.ea);
+    	  console.log('금액 :', x.amt);
+      })
+      
+   </script>
+   
+</div>
+</body>
+</html>

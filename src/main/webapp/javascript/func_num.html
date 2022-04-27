@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_num</title>
+</head>
+<body>
+<div id='javascipt'>
+   <h1>숫자함수</h1>
+   <script>
+      //eval는 마법사
+      var v = "(10+20)*5";
+      console.log(v, eval(v));
+     
+      var v2 = 123.567;
+      var v3 = "1001";
+      var v4 = "ff";
+      var v5 = "1234.5678";
+      
+      console.log(v2, parseInt(v2));
+      console.log(v3, '의 십진수', parseInt(v3, 2));
+      console.log(v4, '의 십진수', parseInt(v4, 16));
+      console.log(v2, '실수값', parseFloat(v5));
+      
+      // 숫자로만 이루어져 있는가 문자로만 이루어져 있는가
+      var v1 = "123";
+      var v2 = "abc";
+      var v3 = "123*123";
+      console.log('숫자로만 이루어져 있는가?');
+      console.log(v1, isFinite(v1));
+      console.log(v2, isFinite(v2));
+      console.log(v3, isFinite(v3));
+      
+      console.log('문자가 포함되어 있는가?');
+      console.log(v1, isNaN(v1));
+      console.log(v2, isNaN(v2));
+      console.log(v3, isNaN(v3));
+      
+      var v1 = 1234.1234;
+      var v2 = 1234.5678;
+      var v3 = 4567.1234;
+      console.log('소숫점 자리수 지정');
+      console.log(v1,'0', v1.toFixed(0));
+      console.log(v1, '1', v1.toFixed(1));
+      
+      console.log(v2, '0', v2.toFixed(0));
+      console.log(v2, '1', v2.toFixed(1));
+      
+      console.log(v3, '0', v3.toFixed(0));
+      console.log(v3, '1', v3.toFixed(1));
+      
+      /*
+      미션1
+      지급 이자가 12345.6원이다. 이를 5.6원을 반올림하여
+      12350원으로 이자를 지급하시오.
+      */
+      
+      var a = 12345.6;
+      var temp = a/10; //1234.56 
+      a = (temp.toFixed(0))*10;
+      console.log('이자=' + a); 
+      
+      
+      /*미션2
+      전기세가 1234.6원이 나왔다. 5.6원을 절삭하여
+      12340원이 고지되도록 프로그램 하시오.*/
+      var b = 1234.6;
+      var temp_2 = 0;
+      temp_2 = (parseInt(b,0))*10;
+      console.log('전기세=' + temp_2);
+     
+      
+      /*미션3
+      지급 이자가 12341.1원이다. 이를 단 단위에서 절상하여
+      12350원으로 이자를 지급하시오.*/
+      var c = 12341.1;
+      var temp_3 = 0;
+      var temp_4 = 0;
+      temp_3 = c/10; //1234.11
+      temp_4 = temp_3.toFixed(0); //1234
+      temp_4 = (++temp_4)*10; //12345*10=123450
+      console.log('이자=' + temp_4);
+      
+   </script>
+</div>
+</body>
+</html>

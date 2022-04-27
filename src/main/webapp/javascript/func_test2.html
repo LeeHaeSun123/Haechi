@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_test2.html</title>
+</head>
+<body>
+<div id='javascipt'>
+   <h1>성적 처리 결과</h1>
+   <form name='frm'>
+      <label>성명</label>
+      <input type='text' name='irum' value='hon'/>
+      <br/>
+      <label>국어</label>
+      <input type='text' name='kor' size='4' value='60'/>
+      <br/>
+      <label>영어</label>
+      <input type='text' name='eng' size='4' value='60'/>
+      <br/>
+      <label>수학</label>
+      <input type='text' name='mat' size='4' value='60'/>
+      <input type='button' value='실행' name='btn'/>
+      <hr/>
+      <label>총점</label>
+      <input type='text' name='tot' size='4' readonly/>
+      <br/>
+      <label>평균</label>
+      <input type='text' name='avg' size='4' readonly/>
+      <br/>
+      <label>결과</label>
+      <input type='text' name='result' readonly/>
+   </form>
+</div>
+<script>
+   //세개의 점수를 전달받아 합계를 계산하여 리턴하는 함수
+   function Hap(k,e,m){
+	   var h = k+e+m;
+	   return h;
+   }
+   
+   //합계를 매개변수로 전달 받아 평균을 계산하여 리턴하는 함수
+   function Avg(hap){
+	   var x = hap/3;
+	   return x;
+   }
+   
+   //평균을 매개변수로 전달 받아 합격여부를 리턴하는 함수
+   function Result(avg){
+	   var x='합격';	   
+	   if(avg<60){
+		   x='불합격';
+	   }
+	   return x;
+   }
+       
+   
+   //실행버튼이 클릭되면 실행되는 함수
+   var frm = document.frm;
+   frm.btn.onclick = function(){
+	   var k = Number(frm.kor.value);
+	   var e = Number(frm.eng.value);
+	   var m = Number(frm.mat.value);
+	   var t = Hap(k,e,m);
+	   var a = Avg(t);
+	   var r = Result(a);
+	   
+	   frm.tot.value = t;
+	   frm.avg.value = a.toFixed(2);
+	   frm.result.value = r;
+   }
+	   
+   
+
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/object_literal</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>object_literal</h1>
+   <script>
+      var obj = {}; //객체 obj 리터널 선언 
+      obj.x = 10; //obj가 가지고 있는 x값
+      obj.y = 20; //obj가 가지고 있는 y값
+      obj.sum = obj.x + obj.y; // sum, x, y는 모두 변수이다
+      //obj = {x:10, y:20, sum:30}
+      console.log(obj);
+      console.log('obj.x', obj.x);
+      console.log('obj.y', obj.y);
+      console.log('obj.sum', obj.sum);
+      
+      var obj2 = {}; //객체 obj2 리터널 선언 
+      obj2.x = 10; //obj2가 가지고 있는 x값
+      obj2.y = 20; //obj2가 가지고 있는 y값
+      obj2.sum = function(){
+    	  return this.sum = this.x + this.y; //this.x->obj.x를 지칭, this.y->obj.y를 지칭
+      }
+      console.log('obj2.x', obj2.x);
+      console.log('obj2.y', obj2.y);
+      console.log('obj2.sum()', obj2.sum());
+      
+      console.log('----------------');
+      var obj3 = {};
+      obj3.setName = function(n){ this.name = n; }
+      obj3.setAge = function(n){ this.age = n; }
+      obj3.getName = function(){ return this.name; }
+      obj3.getAge = function(){ return this.age; }
+      obj3.output = function(){
+    	  var str = 'name :' + this.name
+    	          + ', age :' + this.age;
+    	  return str;
+      }
+      
+      obj3.setName('hong');
+      obj3.setAge(20);
+      console.log('---------------');
+      console.log(obj3.getName());
+      console.log(obj3.getAge());
+      console.log(obj3.output()); //출력 : [name :hong, age :20]
+      
+      //new Object() 또는 new Function
+      var obj4 = new Object();
+      obj4.w = 100;
+      obj4.h = 50;
+      obj4.getArea = function(){
+    	  return this.w * this.h;
+      }
+      console.log('-------------');
+      
+      console.log('area', obj4.getArea()); //출력 : 5000
+      obj4.w = 50;
+      obj4.h = 50;
+      console.log('area2', obj4.getArea()); //출력 : 2500
+      
+      function Product(pname, ea, price){
+    	  this.pname = pname;
+    	  this.ea = ea;
+    	  this.price = price;
+    	  this.process = function(){
+    		  this.amt = this.price*this.ea;
+    	  }
+    	  this.output = function(){
+    		  var str = 'pName : '  + this.pname 
+    		          + '\nea : '   + this.ea 
+    		          +'\nprice : ' + this.price 
+    		          +'\namt : '     + this.amt;
+    	  }
+      }
+      console.log('------------------');
+      var p1 = new Product('냉장고', 50, 100); //Product : 클래스=틀
+      p1.process();
+      console.log(p1.output());
+      /*출력
+      pName : 냉장고
+      ea : 50
+      price : 100
+      amt : 5000
+      */
+      
+      var p2 = new Product('코끼리', 100, 5000);
+      p2.process();
+      console.log(p2.output());
+      /* 출력
+      pName : 코끼리
+      ea : 100
+      price : 5000
+      amt : 500000
+      */
+      console.log('-----------------');
+      
+      //클래스형 메서드, 인스턴스형 메서드
+      function Member(name, phone){
+    	  this.name = name;
+    	  this.phone = phone;
+    	  this.output = function(){
+    		  return this.name + ',' + this.phone;
+    	  }
+      }
+      
+      Member.prototype.setPass = function(pass){ //Member.prototype.setPass = function->객체형, 인스턴스형
+    	  this.pass = pass;
+      }
+      
+      var m = new Member('kim', '010');
+      console.log(m.output());
+      m.setPass('1234');
+      console.log(m.pass);
+      
+      console.log('-------------------');
+      //console.log(Member.output()); //error
+      //Member.setPass('4567'); //error
+      
+      function A(){}
+      A.output = function(){ // A.output->클래스형->클래스명으로 접근
+    	  return 'hi...';
+      }
+      var a = new A();
+      //console.log(a.output());->객체명으로 접근 할 수 없다(클래스명으로만 접근 가능하다)
+      console.log(A.output());
+
+   </script>
+</div>
+</body>
+</html>

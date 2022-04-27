@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/logical.html</title>
+</head>
+<body>
+<div id='logical'>
+   <h1>논리 연산 생략 기능</h1>
+   <script>
+   //논리곱인 경우 첫번째 사건이 거짓이라면 두번째 연산식은 실행되지 않는다.
+      var a=10;
+      var b=20;
+      var c=10;
+      var d= (a > b) && (++c > a);
+      console.log('d=' + d);
+      console.log('c=' + c);
+      
+      //논리합인 경우 첫번째 사건이 참이라면 두번째 연산식은 실행되지 않는다.
+      d = (b > a) || (++c > a);
+      console.log('----------');
+      console.log('d=' + d);
+      console.log('c=' + c);
+      console.log('<<<<<미션>>>>>')
+      //미션 수행..
+      //논리곱인 경우 첫번째 사건이 거짓이라면 두번째 연산식은 실행되지 않는다.
+      var a=10;
+      var b=20;
+      var c=10;
+      var d= (a < b) && (++c < a);
+      console.log('d=' + d); //false
+      console.log('c=' + c); //c=11
+      
+      //논리합인 경우 첫번째 사건이 참이라면 두번째 연산식은 실행되지 않는다.
+      d = (b < a) || (++c > a);
+      console.log('----------');
+      console.log('d=' + d); //true
+      console.log('c=' + c); //12
+      
+      /*연산 생략기능을 사용하지 않는 논리 연산식*/
+      var age=20;
+      var gender='m';
+      var r= (gender == 'm') || (++age>20)
+      console.log('연산 생략기능을 사용하지 않을 때...');
+      console.log('r=' + r);
+      console.log('age=' + age);
+      
+      
+   </script>
+</div>
+</body>
+</html>

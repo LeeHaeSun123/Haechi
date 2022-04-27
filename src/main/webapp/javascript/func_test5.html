@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/func_test5.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>화살표 함수</h1>
+   <script>
+   //매개변수가 없는 경우
+      let A = function(){ console.log('A...')};
+      let AA = ()=>{console.log('AA...')};
+      A(); AA();
+      
+      //매개변수가 있는 경우
+      var B = function(x,y){console.log(x+y)}
+      BB = (x,y)=>{console.log(x+y)}
+      B(10,20); BB(30,40);
+      
+      //배열객체의 map() 사용법
+      let score=[10,20,30,40,50];
+      score.map(function(n){
+    	  console.log(n);
+      });
+      console.log('-----------')
+      score.map(n=>{
+    	  console.log(n);
+      })
+
+   </script>
+</div>
+</body>
+</html>

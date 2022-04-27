@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/while_1.html</title>
+</head>
+<body>
+<div id='javascipt'>
+   <h1>while</h1>
+   <script>
+      /*1~10의 합계 출력*/
+      var i=1;
+      var sum=0;
+      while(i<=10){ //i가 10보다 작거나 같으면 실행
+    	  sum=sum+i; //sum+=i;
+          i=i+1;	  //i++;
+      }
+      console.log(sum); //55
+      
+      /*
+      x는 1~20까지 1씩 증가되고 있다. 이 떄
+      y=3x+1의 y값을 구하시오(x,y)
+      */
+      
+      var x=1;
+      var y=0;
+      while(x<=20){
+    	  y=(3*x)+1;
+    	  console.log('(%d,%d)',x,y);
+    	  x++;
+      }
+      
+      console.log('--------------------------------');
+      /*
+      피보나치수열의 값이 1000이 될 때까지 1부터 출력하시오.
+      1 1 2 3 5 8 13 21...
+      */
+      var n1=1;
+      var n2=1;
+      var n3=n1+n2;
+      console.log(n1);
+      console.log(n2);
+      while(n3<1000){
+    	console.log(n3);
+    	n1=n2;
+    	n2=n3;
+    	n3=n1+n2;
+      }
+      console.log('--------------------------------');
+      
+      /*do~while을 사용한 1~10까지의 합계*/
+      var s=0;
+      var x=1;
+      do{
+    	  s=s+x;
+    	  x++;
+      }while(x<=10);
+      console.log(s); //55
+      console.log('--------------------------------');
+      /*1~n까지의 합계가 1230이상이 될 때의 n값을 출력*/
+      var s=0;
+      var n=0;
+      do{
+    	  n++;
+    	  s=s+n;    	  
+      }while(s<1230);
+      console.log(n);
+      
+   </script>
+</div>
+</body>
+</html>

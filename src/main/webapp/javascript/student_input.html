@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#javascript{
+   width : 700px;
+   margin : 10px anto;
+}
+
+*{
+   box-sizing : border-box;
+   line-height : 1.2em;
+   margin-bottom : 5px;
+}
+
+#javascript form>label{
+   display : inline-block;
+   width : 80px;
+   text-align : left;
+}
+
+.img{
+   position : fixed;
+   top : 70px;
+   left : 275px;
+   bottom : 160px;
+}
+
+.save{
+   display : inline-flex;
+   transform : translate(50%, 50%);
+}
+.cancel{
+   display : inline-flex;
+   transform : translate(50%, 50%);
+}
+
+</style>
+</head>
+<body>
+<div id='javascript'>
+<form name='frm'>
+   <h1>학생 정보 입력</h1>
+   <label>학번</label><input type='text' value='hong' name='id'/>
+   <br/>
+   <label>성명</label><input type='text' value='길동이' name='name'/>
+   <br/>
+   <label>암호</label><input type='password' value='11111111' name='pwd'/>
+   <br/>
+   <label>연락처</label><input type='text' value='010-0000-0000' name='phone'/> 
+   <br/>
+   <label>우편번호</label><input type='text' name='address'/>
+   <br/>
+   <label>상세주소</label><input type='text' name='address_detail'/>
+   <br/>
+   <label>증명사진</label><input type='button' value='파일 선택' name='btn'/>
+   <label>선택된 파일 없음</label>
+   <label><img class='img' src='http://via.placeholder.com/120x150?text=photo'/></label>  
+   <hr/>
+   <input type='button' class='save' value='저장' name='save'/>
+   <input type='button' class='cancel' value='취소' name='cancel'/>
+   
+</form>
+</div>
+<script>
+   var frm = document.frm;
+   frm.id.onkeyup = function(){
+	   var len = frm.id.value.length;
+	   if(len == 8){
+		frm.name.focus();
+	}
+	   
+   frm.pwd.onkeyup = function(){
+	   var len = frm.pwd.value.length;
+	   if(len>=8 && len<=12){
+		   frm.address.focus();
+	   }
+	   
+	   else alert('암호의 길이를 다시 설정하세요');
+	   
+   }
+   }
+</script>
+</body>
+</html>

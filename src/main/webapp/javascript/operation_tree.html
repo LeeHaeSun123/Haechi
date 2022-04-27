@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/operation_tree</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>3항 연산자</h1>
+   <script>
+      var a = 10;
+      var b = 20;
+      var r = 0;
+      //a,b중에 항상 작은 값을 r에 저장
+      r = (a<b)? a : b;
+      console.log('a,b중 작은 값....');
+      console.log('a=' + a);
+      console.log('b=' + b);
+      console.log('r=' + r);
+      
+      //a,b중에 항상 큰 값을 r에 저장
+      r = (a>b)? a : b;//r = (a<b)? b : a;
+      console.log('a,b중 큰 값.....');
+      console.log('r2='+ r);
+      
+      
+     
+      /*[미션1]
+성적이 각각 kor, eng, mat에 저장되어 있다
+평균이 60이상이면 '합격', 60미만이면 '불합격'을 console에 출력*/
+      var kor = 40;
+      var eng = 80;
+      var mat = 90;
+      var P = '합격';
+      var N = '불합격';
+      var avg = (kor+eng+mat)/3;
+      r = (avg >= 60) ? P : N;
+      console.log('-----미션1-----');
+      console.log('결과=' + r);      
+     
+      
+      /*[미션2]
+국가 고시가 3개의 과목으로 이루어져있다.
+합격기준이 과락이 없고, 평균 60점 이상인 경우이다
+임의의 시험점수가 kor, eng, mat에 저장되어 있을 때
+합격/불합격을 계산하여 출력하시오.
+(단, 과락은 40점 미만)
+*/  
+      r = 0;
+      kor = 80;
+      eng = 70;
+      mat = 30;
+      P = '통과';
+      N = '과락';
+      avg = (kor + eng + mat)/3;
+      r = ((kor >= 40 && eng >= 40 && mat >= 40)) && (avg >= 60) ? P : N;
+      console.log('-----미션2-----');
+      console.log('결과:' + r);
+      
+      
+   </script>
+</div>
+</body>
+</html>

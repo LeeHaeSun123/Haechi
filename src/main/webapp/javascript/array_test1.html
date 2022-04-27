@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/array_test1.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>배열 선언하기</h1>
+   <script>
+      //배열의 크기를 지정하지 않고 선언
+      let array = new Array();
+      array[0] = 100;
+      array[1] = 200;
+      array[10] = 100;
+      console.log(array[0]); //100
+      console.log(array[1]); //200
+      console.log(array[10]); //100
+      /*배열의 크기를 지정하지 않고 선언한 경우 가운데 있는
+      요소들을 초기화 하지 않으면 접근할 수 없다*/
+      console.log(array[5]); //undefined
+      console.log('----------------');
+
+      //배열의 크기를 지정하여 선언
+      array = new Array(11);
+      array[0] = 100;
+      array[1] = 200;
+      array[10] = 100;
+      console.log(array[0]); //100
+      console.log(array[1]); //200
+      console.log(array[10]); //100
+      
+      //초기값을 사용하여 배열을 선언하는 경우
+      array = [10,20,30,40,50];
+      console.log('length :', array.length); //5
+      console.log('array[0] :', array[0]); //10
+      
+      //2차원 배열 선연([행][열])
+      array = new Array(3); //3행
+      array[0] = new Array(5); //첫번째 행의 배열을 5개로
+      array[1] = new Array(2); //두번째 행의 배열을 2개로
+      array[2] = new Array(3); //세번째 행의 배열은 3개로
+      
+      array[0][0] = 10;
+      array[0][1] = 20;
+      array[1][1] = 30;
+      array[2][2] = 40;
+      
+      //json 형식으로 1차원 배열
+      let j = [10,20,30,40,50];
+      
+      //json 형식으로 2차원 배열
+      j = [
+    	  [10,20,30],
+    	  [40,50,60],
+    	  [70,80,90]
+      ];
+      
+      //4행3열 배열(new Array)
+      var s = new Array(4);
+      s[0] = new Array(1,2,0);
+      s[1] = new Array(3,4,0);
+      s[2] = new Array(5,6,0);
+      s[3] = new Array(7,8,0);
+      
+      s[0][2] = s[0][0] + s[0][1];
+      s[1][2] = s[1][0] + s[1][1];
+      s[2][2] = s[2][0] + s[2][1];
+      s[3][2] = s[3][0] + s[3][1];
+      
+      console.table(s);
+      console.log(s);
+      
+      //4행3열(JSON)
+      s =[
+    	  [1,2,0],
+    	  [3,4,0],
+    	  [5,6,7],
+    	  [7,8,0]
+      ];
+      
+      s[0][2] = s[0][0] + s[0][1];
+      s[1][2] = s[1][0] + s[1][1];
+      s[2][2] = s[2][0] + s[2][1];
+      s[3][2] = s[3][0] + s[3][1];
+      
+      console.log('json.......')
+      console.table(s);
+      console.log(s);
+      
+      //배열이 아래와 같을 때 금액을 구하시오.
+      p = [
+    	  ['TV',100,5000,0],
+    	  ['냉장고',100,5000,0],
+    	  ['세탁기',200,4000,0],
+    	  ['청소기',300,3000,0],
+    	  ['세척기',400,2000,0],
+    	  ['컴퓨터',500,1000,0]
+
+      ];
+      
+      //금액(수량*단가)을 구하여 console.table로 출력
+      /*p[0][3] = p[0][1]*p[0][2];
+      p[1][3] = p[1][1]*p[1][2];
+      p[2][3] = p[2][1]*p[2][2];
+      p[3][3] = p[3][1]*p[3][2];
+      p[4][3] = p[4][1]*p[4][2];
+      p[5][3] = p[5][1]*p[5][2];*/
+      
+      for(var i=0; i<6; i++){ //행
+    	  p[i][3] = p[i][1]*p[i][2];
+      }
+      
+      console.table(p);
+      
+      console.log('----------');
+      
+      var row=4;
+      var col=4;
+      var k = new Array(row);
+      for(i=0; i<row; i++) k[i] = new Array(col);
+      var n=0;
+      
+      for(i=0; i<row; i++){
+    	  for(j=0; j<col; j++){
+    		  ++n;
+    		  k[i][j] = n;
+    	  }
+      }
+      console.table(k);
+
+   </script>
+</div>
+</body>
+</html>

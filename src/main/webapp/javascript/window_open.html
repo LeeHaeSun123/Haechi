@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/window_open.html</title>
+</head>
+<body>
+<div id='javascript'>
+   <h1>window open</h1>
+   <input type='button' value='NAVER' id='btnNaver'/>
+   <input type='button' value='JOBTC' id='btnJobtc'/>
+   <input type='button' value='MY PAGE' id='btnMyPage'/>
+   <hr/>
+   <form name='frm'>
+      <label>전송 데이터</label>
+      <input type='text' name='dan'/>
+      <input type='button' value='전송' id='btnDan'/>
+      <br/>
+      <label>수신 데이터</label>
+      <textarea rows='10' cols='50' name='result'></textarea>
+   </form>
+   <script>
+      //네개 버튼을 가져와 개체변수에 대입
+      var btnNaver = document.getElementById('btnNaver');
+      var btnJotc = document.getElementById('btnJotc');
+      var btnMyPage = document.getElementById('btnMyPage');
+      var btnDan = document.getElementById('btnDan');
+      
+      //네개 버튼에 click event추가
+      btnNaver.addEventListener('click', function(){
+    	  var win = window.open('http://www.naver.com','win','width=300px, height=300px');//새 창을 열어라
+      });
+      
+      btnJobtc.onclick = function(){
+    	  var win2 = window.open('https://cafe.naver.com/itdocument', '', 'width=600px, height=600px');
+      }
+      
+      btnMyPage.onclick = function(){
+    	  var win3 = window.open('window_sub.html','win3');
+      }
+      
+      btnDan.onclick = function(){
+    	  var win4 = window.open('window_sub_dan.html', 'win4');
+      }
+      
+   </script>
+</div>
+</body>
+</html>

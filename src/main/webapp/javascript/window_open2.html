@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/window_open2.html</title>
+<style>
+*{
+   box-sizing : border-bpx;
+}
+#javascript{
+   width : 340px;
+   margin : 20px auto;
+   border : 4px solid #77f;
+   padding : 20px;
+   line-height : 1.4em;
+}
+#javascript form{
+   position : relative;
+}
+form label{
+   display : inline-block;
+   width : 60px;
+}
+
+form>input[type=button]{
+   position : absolute;
+   left : 250px;
+   top : 10px;
+   height : 44px;
+   border-radius : 6px;
+   border : 2px solid #99f;
+}
+
+#javascript #result{
+   padding : 30px;
+   background-color : #ccf;
+   margin-top : 20px;
+   text-align : center;
+}
+
+</style>
+</head>
+<body>
+<div id='javascipt'>
+   <form name='frm'>
+      <label>아이디</label>
+      <input type='text' name='id'/>
+      <br/>
+      <label>암호</label>
+      <input type='text' name='pw'/>
+      
+      <input type='button' value='LOGIN' id='btnok'/>
+      <br/>
+   </form>
+   <div id='result'>확인 결과</div>
+   
+   <script>
+   var frm = document.frm;
+   var btnok = document.getElementById('btnok');
+   
+   frm.btnok.onclick = function(){
+	   var win = window.open('window_sub2.html','win');
+   }
+
+   </script>
+</div>
+</body>
+</html>

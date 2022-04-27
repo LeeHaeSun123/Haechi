@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript/switch_2.html</title>
+<style>
+form{
+   margin-top:30px;
+}
+#result{
+   margin-top:20px;
+   padding:14px;
+   border:4px solid #666;
+}
+</style>
+</head>
+<body>
+<div id='javascript'>
+   <h1>switch 2</h1>
+   <fieldset>
+      switch문을 사용하여 성적에 따른 학점을 구하시오
+   </fieldset>
+   <form name='frm'>
+      <label>성적 : </label>
+      <input type='text' value='80' name='score'/>
+      <input type='button' value='계산' name='btn'/>
+   </form>
+   <div id='result'>학점이 표시 될 곳</div>
+   
+   <script>
+      var score=100;
+      var grade='';
+      var r;
+      var color;
+      var frm=document.frm;
+      frm.btn.onclick=function(){
+    	 score = frm.score.value
+
+    	 switch(true){
+    	 case score>=90 :
+    		 grade = 'A';
+    	     break;
+    	 case score>=80 :
+    	     grade = 'B';
+    	     break;
+    	 case score>=70 :
+    		 grade = 'C';
+    	     break;
+    	 case score>=60 :
+    		 grade = 'D';
+    	     break;
+    	 default : //case score<60
+    	     grade = 'F';
+    	     break;
+    	 }
+    		 
+         r = document.getElementById('result');
+         r.innerHTML = 'score=' + score + '<br/>'
+                     + 'grade=' + grade;
+         
+         color = (score>=60)? '#ddddff' : '#ffdddd';
+         r.style.backgroundColor = color;
+         
+         console.log('score=' + score);
+         console.log('grade=' + grade);
+      }
+
+   </script>
+</div>
+</body>
+</html>

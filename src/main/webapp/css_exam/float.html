@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css_exam/float</title>
+
+<style>
+#main div{
+   border:1px solid #000;
+   padding:20px;
+   box-sizing:border-box;
+}
+
+#main>div{
+   width:450px;
+}
+
+#main>div.c1>div:first-child{
+   background-color:#f00;
+}
+
+#main>div.c1>div:nth-child(2){
+   background-color:#0f0;   
+}
+
+#main>div.c1>div:last-child{
+   background-color:#00f;
+}
+
+#main>div.c2>div:first-child{
+   background-color:#f007;
+}
+
+#main>div.c2>div:nth-child(2){
+   background-color:#0f07;
+}
+
+#main>div.c2>div:last-child{
+   background-color:#0ff7;
+}
+
+#main>div.c3{
+   line-height:60px;
+   text-align:center;
+   font-size:30px;
+}
+
+#main>div.c1>div,#main>div.c2>div{
+   width:100px;
+}
+
+#main>.c1>div{
+   float:left;
+}
+
+#main>.c1>div:last-child{
+   clear:both;
+}
+
+</style>
+</head>
+<body>
+<h1>float</h1>
+<div id='main'>
+   <div class='c1'>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+   </div>
+   <div class='c2'>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+   </div>
+   <div class='c3'>
+      CCCCC
+   </div>
+</div>
+
+</body>
+</html>
